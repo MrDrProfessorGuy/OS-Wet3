@@ -142,6 +142,60 @@ Wet/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/build
 .PHONY : Wet/fast
 
+JobQueue.o: JobQueue.cpp.o
+
+.PHONY : JobQueue.o
+
+# target to build an object file
+JobQueue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/JobQueue.cpp.o
+.PHONY : JobQueue.cpp.o
+
+JobQueue.i: JobQueue.cpp.i
+
+.PHONY : JobQueue.i
+
+# target to preprocess a source file
+JobQueue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/JobQueue.cpp.i
+.PHONY : JobQueue.cpp.i
+
+JobQueue.s: JobQueue.cpp.s
+
+.PHONY : JobQueue.s
+
+# target to generate assembly for a file
+JobQueue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/JobQueue.cpp.s
+.PHONY : JobQueue.cpp.s
+
+Queue.o: Queue.cpp.o
+
+.PHONY : Queue.o
+
+# target to build an object file
+Queue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.o
+.PHONY : Queue.cpp.o
+
+Queue.i: Queue.cpp.i
+
+.PHONY : Queue.i
+
+# target to preprocess a source file
+Queue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.i
+.PHONY : Queue.cpp.i
+
+Queue.s: Queue.cpp.s
+
+.PHONY : Queue.s
+
+# target to generate assembly for a file
+Queue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.s
+.PHONY : Queue.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -169,6 +223,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+threadQueue.o: threadQueue.cpp.o
+
+.PHONY : threadQueue.o
+
+# target to build an object file
+threadQueue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/threadQueue.cpp.o
+.PHONY : threadQueue.cpp.o
+
+threadQueue.i: threadQueue.cpp.i
+
+.PHONY : threadQueue.i
+
+# target to preprocess a source file
+threadQueue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/threadQueue.cpp.i
+.PHONY : threadQueue.cpp.i
+
+threadQueue.s: threadQueue.cpp.s
+
+.PHONY : threadQueue.s
+
+# target to generate assembly for a file
+threadQueue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/threadQueue.cpp.s
+.PHONY : threadQueue.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,9 +259,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Wet"
+	@echo "... JobQueue.o"
+	@echo "... JobQueue.i"
+	@echo "... JobQueue.s"
+	@echo "... Queue.o"
+	@echo "... Queue.i"
+	@echo "... Queue.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... threadQueue.o"
+	@echo "... threadQueue.i"
+	@echo "... threadQueue.s"
 .PHONY : help
 
 

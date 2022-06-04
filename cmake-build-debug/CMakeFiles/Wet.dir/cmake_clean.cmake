@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Wet.dir/JobQueue.cpp.o"
+  "CMakeFiles/Wet.dir/Queue.cpp.o"
   "CMakeFiles/Wet.dir/main.cpp.o"
+  "CMakeFiles/Wet.dir/threadQueue.cpp.o"
   "Wet"
   "Wet.pdb"
 )
