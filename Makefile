@@ -16,11 +16,14 @@ all: server client output.cgi
 	-mkdir -p public
 	-cp output.cgi favicon.ico home.html public
 
-server: shit.o old.o Worker.o QueueManager.o JobQueue.o threadQueue.o
-	$(CC) $(CFLAGS) -o server old.o shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o $(LIBS)
+server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o
+	g++ -c -std=c++11 shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o  $(LIBS)
 
 old: request.o segel.o
-	gcc -g -Wall -c old.o request.o segel.o $(LIBS)
+	gcc -c -g -Wall request.o segel.o $(LIBS)
+
+build: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
+	g++ shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
 
 client: client.o segel.o
 	$(CC) $(CFLAGS) -o client client.o segel.o

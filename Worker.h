@@ -5,7 +5,9 @@
 #ifndef WET_WORKER_H
 #define WET_WORKER_H
 
-#include "JobQueue.h"
+#include "pthread.h"
+
+extern class JobEntry;
 
 class Worker {
 private:
