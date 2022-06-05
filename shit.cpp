@@ -12,6 +12,7 @@
 // Most of the work is done within routines written in request.c
 //
 
+void unix_error(char *msg);
 
 
 // HW3: Parse the new arguments too
