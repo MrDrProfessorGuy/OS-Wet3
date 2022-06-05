@@ -47,7 +47,7 @@ bool operator==(const JobEntry &job1, const JobEntry& job2){
 
 
 
-JobQueue::JobQueue(unsigned int maxSize){
+JobQueue::JobQueue(int maxSize){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
         assert(false);
     }
