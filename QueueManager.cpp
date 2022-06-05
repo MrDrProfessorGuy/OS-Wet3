@@ -148,10 +148,10 @@ bool QueueManager::isEmpty() {
     return (this->size == 0);
 }
 
-unsigned int QueueManager::maxSize(){
+int QueueManager::maxSize(){
     return this->max_size;
 }
-unsigned int QueueManager::Size(){
+int QueueManager::Size(){
     return this->size;
 }
 
