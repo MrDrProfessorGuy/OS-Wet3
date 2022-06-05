@@ -1,48 +1,144 @@
 
 #include "QueueManager.h"
+#include "segel.h"
+#include "math.h"
+#include "assert.h"
 
 
+
+QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), max_size(max_size), size(0), master_waiting(0),
+                                                thread_queue(max_size), jobs_queue(max_size), policy(policy){
+    if (pthread_mutex_init(&mutex, nullptr) != 0){
+        assert(false);
+    }
+    if (pthread_cond_init(&cond_write, nullptr) != 0){
+        assert(false);
+    }
+    if (pthread_cond_init(&cond_master, nullptr) != 0){
+        assert(false);
+    }
+    
+}
+
+QueueManager::~QueueManager() {}
+
+ QueueManager& QueueManager::getInstance() // make SmallShell singleton
+{
+    return instance;
+}
+
+
+QueueManager& QueueManager::AuxGetInstance(int max_size, PolicyType policy) // make SmallShell singleton
+{
+    static QueueManager instance(max_size, policy); // Guaranteed to be destroyed.
+    // Instantiated on first use.
+    return instance;
+}
+
+
+bool QueueManager::policyHandler(JobEntry& job) {
+    
+    if(policy == Block){
+        while(isFull()){
+            pthread_cond_wait(&cond_write, &mutex);
+        }
+        return true;
+    }
+    else if(policy == DropTail){
+        Close(job.connfd);
+        return false;
+    }
+    else if(policy == DropHead){
+        JobEntry oldest(JobEntry::NO_FD);
+        jobs_queue.pop(oldest);
+        Close(oldest.connfd);
+        return true;
+    }
+    else{
+        int del_num = roundf(0.7*jobs_queue.size + 0.5);
+        JobEntry deleted_job(JobEntry::NO_FD);
+        for(int i = 0; i < del_num; i++){
+            int delete_idx = rand()%jobs_queue.size;
+            jobs_queue.pop(deleted_job,delete_idx);
+            Close(deleted_job.connfd);
+        }
+        return true;
+    }
+}
 void QueueManager::createJob(JobEntry job){
     pthread_mutex_lock(&mutex);
-    while (writers > 0){
-        pthread_cond_wait(&cond_write, &mutex);
+    master_waiting++;
+    while (handlers > 0){
+        pthread_cond_wait(&cond_master, &mutex);
     }
-    writers++;
+    master_waiting--;
+    handlers++;
     
+    bool create = true;
     if (isFull()){
-        policy();
+        create = policyHandler(job);
     }
     
-    bool result = false;
-    jobs_queue.insert(job, result);
-    if(result){
-        size++;
+    if (create){
+        bool result = false;
+        jobs_queue.insert(job, result);
+        if(result){
+            size++;
+        }
     }
     
-    writers--;
+    handlers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
 }
 
 void QueueManager::getRequest(JobEntry &job){
     pthread_mutex_lock(&mutex);
-    //assert(!isEmpty());
-    while (writers > 0 || isEmpty()){
+    while (handlers > 0 || jobs_queue.isEmpty()){
         pthread_cond_wait(&cond_write, &mutex);
-        //assert(!isEmpty());
     }
-    writers++;
+    handlers++;
     
     bool result = false;
-    
     jobs_queue.pop(job);
     thread_queue.insert(result);
     assert(result);
     
-    writers--;
-    pthread_cond_signal(&cond_write);
+    handlers--;
+    if (master_waiting > 0 && !isFull()){
+        pthread_cond_signal(&cond_master);
+    }
+    else{
+        pthread_cond_signal(&cond_write);
+    }
     pthread_mutex_unlock(&mutex);
 }
+
+void QueueManager::finishRequest(JobEntry &job){
+    pthread_mutex_lock(&mutex);
+    assert(!thread_queue.isEmpty());
+    while (handlers > 0){
+        pthread_cond_wait(&cond_write, &mutex);
+    }
+    handlers++;
+    
+    
+    thread_queue.remove();
+    Close(job.connfd);
+    job.connfd = JobEntry::NO_FD;
+    size--;
+    
+    handlers--;
+    if (master_waiting > 0){
+        pthread_cond_signal(&cond_master);
+    }
+    else{
+        pthread_cond_signal(&cond_write);
+    }
+    pthread_mutex_unlock(&mutex);
+}
+
+
 
 bool QueueManager::isFull(){
     return (this->size == this->max_size);

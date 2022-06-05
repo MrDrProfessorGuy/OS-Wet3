@@ -26,13 +26,13 @@ threadQueue::~threadQueue(){
     free(array);
 }
 
-bool threadQueue::isEmpty(){
+bool threadQueue::isEmpty() const{
     if (size == 0){
         return true;
     }
     return false;
 }
-bool threadQueue::isFull(){
+bool threadQueue::isFull() const{
     if (size == max_size){
         return true;
     }
@@ -83,17 +83,18 @@ void threadQueue::remove(){
     pthread_mutex_unlock(&mutex);
 }
 
-int threadQueue::find(pthread_t thread_id){
+int threadQueue::find(pthread_t thread_id) const{
     for(int i = 0; i < size; i++){
-        if(this->array[i] == thread_id){
+        if(pthread_equal(array[i], thread_id)){
             return i;
         }
     }
     return NotFound;
 }
+/*
 
-void threadQueue::printQueue() {
+void threadQueue::printQueue() const{
     for(int i = 0; i < size; i++){
         std::cout << array[i] << std::endl;
     }
-}
+}*/

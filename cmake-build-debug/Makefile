@@ -169,59 +169,140 @@ JobQueue.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/JobQueue.cpp.s
 .PHONY : JobQueue.cpp.s
 
-Queue.o: Queue.cpp.o
+QueueManager.o: QueueManager.cpp.o
 
-.PHONY : Queue.o
-
-# target to build an object file
-Queue.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.o
-.PHONY : Queue.cpp.o
-
-Queue.i: Queue.cpp.i
-
-.PHONY : Queue.i
-
-# target to preprocess a source file
-Queue.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.i
-.PHONY : Queue.cpp.i
-
-Queue.s: Queue.cpp.s
-
-.PHONY : Queue.s
-
-# target to generate assembly for a file
-Queue.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Queue.cpp.s
-.PHONY : Queue.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
+.PHONY : QueueManager.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/main.cpp.o
-.PHONY : main.cpp.o
+QueueManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/QueueManager.cpp.o
+.PHONY : QueueManager.cpp.o
 
-main.i: main.cpp.i
+QueueManager.i: QueueManager.cpp.i
 
-.PHONY : main.i
+.PHONY : QueueManager.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/main.cpp.i
-.PHONY : main.cpp.i
+QueueManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/QueueManager.cpp.i
+.PHONY : QueueManager.cpp.i
 
-main.s: main.cpp.s
+QueueManager.s: QueueManager.cpp.s
 
-.PHONY : main.s
+.PHONY : QueueManager.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/main.cpp.s
-.PHONY : main.cpp.s
+QueueManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/QueueManager.cpp.s
+.PHONY : QueueManager.cpp.s
+
+Worker.o: Worker.cpp.o
+
+.PHONY : Worker.o
+
+# target to build an object file
+Worker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Worker.cpp.o
+.PHONY : Worker.cpp.o
+
+Worker.i: Worker.cpp.i
+
+.PHONY : Worker.i
+
+# target to preprocess a source file
+Worker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Worker.cpp.i
+.PHONY : Worker.cpp.i
+
+Worker.s: Worker.cpp.s
+
+.PHONY : Worker.s
+
+# target to generate assembly for a file
+Worker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Worker.cpp.s
+.PHONY : Worker.cpp.s
+
+request.o: request.c.o
+
+.PHONY : request.o
+
+# target to build an object file
+request.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.o
+.PHONY : request.c.o
+
+request.i: request.c.i
+
+.PHONY : request.i
+
+# target to preprocess a source file
+request.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.i
+.PHONY : request.c.i
+
+request.s: request.c.s
+
+.PHONY : request.s
+
+# target to generate assembly for a file
+request.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.s
+.PHONY : request.c.s
+
+segel.o: segel.c.o
+
+.PHONY : segel.o
+
+# target to build an object file
+segel.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.o
+.PHONY : segel.c.o
+
+segel.i: segel.c.i
+
+.PHONY : segel.i
+
+# target to preprocess a source file
+segel.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.i
+.PHONY : segel.c.i
+
+segel.s: segel.c.s
+
+.PHONY : segel.s
+
+# target to generate assembly for a file
+segel.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.s
+.PHONY : segel.c.s
+
+shit.o: shit.cpp.o
+
+.PHONY : shit.o
+
+# target to build an object file
+shit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/shit.cpp.o
+.PHONY : shit.cpp.o
+
+shit.i: shit.cpp.i
+
+.PHONY : shit.i
+
+# target to preprocess a source file
+shit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/shit.cpp.i
+.PHONY : shit.cpp.i
+
+shit.s: shit.cpp.s
+
+.PHONY : shit.s
+
+# target to generate assembly for a file
+shit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/shit.cpp.s
+.PHONY : shit.cpp.s
 
 threadQueue.o: threadQueue.cpp.o
 
@@ -262,12 +343,21 @@ help:
 	@echo "... JobQueue.o"
 	@echo "... JobQueue.i"
 	@echo "... JobQueue.s"
-	@echo "... Queue.o"
-	@echo "... Queue.i"
-	@echo "... Queue.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... QueueManager.o"
+	@echo "... QueueManager.i"
+	@echo "... QueueManager.s"
+	@echo "... Worker.o"
+	@echo "... Worker.i"
+	@echo "... Worker.s"
+	@echo "... request.o"
+	@echo "... request.i"
+	@echo "... request.s"
+	@echo "... segel.o"
+	@echo "... segel.i"
+	@echo "... segel.s"
+	@echo "... shit.o"
+	@echo "... shit.i"
+	@echo "... shit.s"
 	@echo "... threadQueue.o"
 	@echo "... threadQueue.i"
 	@echo "... threadQueue.s"

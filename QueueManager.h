@@ -1,48 +1,41 @@
 
-
 #ifndef WET_QUEUEMANAGER_H
 #define WET_QUEUEMANAGER_H
 
-#include <sys/socket.h>
-#include <iostream>
 
 #include "JobQueue.h"
 #include "threadQueue.h"
 
-#include "assert.h"
-
-
-
 
 class QueueManager{
+public:
+    enum PolicyType {Block, DropRandom, DropTail, DropHead};
+    static QueueManager& instance;
+    
 private:
     pthread_mutex_t mutex;
     pthread_cond_t cond_write;
-    pthread_cond_t cond_read;
-    int writers;
+    pthread_cond_t cond_master;
+    int handlers;
+    int master_waiting;
     
     unsigned int max_size;
     unsigned int size;
     
     threadQueue thread_queue;
     JobQueue jobs_queue;
+    PolicyType policy;
     
+    QueueManager(int max_size, PolicyType policy);
 public:
-    explicit QueueManager(int max_size) : writers(0), max_size(max_size), size(0),
-                                        thread_queue(max_size), jobs_queue(max_size){
-        if (pthread_mutex_init(&mutex, nullptr) != 0){
-            assert(false);
-        }
-        if (pthread_cond_init(&cond_write, nullptr) != 0){
-            assert(false);
-        }
-        
-    }
     
     ~QueueManager();
     
     QueueManager(QueueManager&) = delete;
     QueueManager& operator=(QueueManager&) = delete;
+    
+    static QueueManager& getInstance();
+    static QueueManager& AuxGetInstance(int max_size, PolicyType policy);
     
     void createJob(JobEntry job);
     //JobEntry getJob();
@@ -56,6 +49,7 @@ public:
     void increaseSize();
     void decreaseSize();
     bool contains(JobEntry job);
+    bool policyHandler(JobEntry &job);
     
     bool lockAcquired(){
         if (pthread_mutex_trylock(&mutex) != 0){

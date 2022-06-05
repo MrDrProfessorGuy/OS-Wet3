@@ -7,6 +7,10 @@
 
 #include <pthread.h>
 
+#ifndef WET_JOBQUEUE_H
+class QueueManager;
+#endif //WET_JOBQUEUE_H
+
 
 class threadQueue {
 private:
@@ -14,16 +18,19 @@ private:
     pthread_cond_t cond_write;
     int writers;
     
-    int find(pthread_t thread_id);
-    bool isEmpty();
-    bool isFull();
-    void printQueue();
-public:
-    
     static const int NotFound = -1;
     unsigned long max_size;
     unsigned long size;
     pthread_t* array;
+    
+protected:
+    bool isEmpty() const;
+    bool isFull() const;
+    int find(pthread_t thread_id) const;
+    //void printQueue() const;
+public:
+    friend class QueueManager;
+
     
     threadQueue(unsigned int maxSize);
     ~threadQueue();

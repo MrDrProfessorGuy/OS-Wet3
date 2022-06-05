@@ -94,16 +94,31 @@
 		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/JobQueue.h">
 			<Option target="Wet"/>
 		</Unit>
-		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Queue.cpp">
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.cpp">
 			<Option target="Wet"/>
 		</Unit>
-		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Queue.h">
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h">
 			<Option target="Wet"/>
 		</Unit>
-		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/main.cpp">
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.cpp">
 			<Option target="Wet"/>
 		</Unit>
-		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/test.h">
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h">
+			<Option target="Wet"/>
+		</Unit>
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request.c">
+			<Option target="Wet"/>
+		</Unit>
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request.h">
+			<Option target="Wet"/>
+		</Unit>
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel.c">
+			<Option target="Wet"/>
+		</Unit>
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel.h">
+			<Option target="Wet"/>
+		</Unit>
+		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/shit.cpp">
 			<Option target="Wet"/>
 		</Unit>
 		<Unit filename="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/threadQueue.cpp">

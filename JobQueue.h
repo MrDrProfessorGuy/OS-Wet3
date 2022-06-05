@@ -8,7 +8,9 @@
 #include <sys/time.h>
 #include <pthread.h>
 
-
+#ifndef WET_QUEUEMANAGER_H
+class QueueManager;
+#endif //WET_QUEUEMANAGER_H
 
 typedef struct timeval TimeInfo;
 
@@ -21,11 +23,15 @@ public:
     TimeInfo dispatch_time;
     
     
-    JobEntry(int connfd);
+    explicit JobEntry(int connfd);
     ~JobEntry();
     
     JobEntry(JobEntry &job);
-    JobEntry& operator=(JobEntry& job);
+    JobEntry& operator=(JobEntry& job ) = default;
+    JobEntry operator=(int fd){
+        JobEntry job(fd);
+        return job;
+    }
     
     void setTime(Time timeField);
     
@@ -42,14 +48,17 @@ class JobQueue{
     pthread_cond_t cond_write;
     int writers;
     
-    bool isEmpty();
-    bool isFull();
-    int find(JobEntry &job);
-
-public:
     unsigned int max_size;
     unsigned int size;
     JobEntry* array;
+
+protected:
+    bool isEmpty() const;
+    bool isFull() const;
+    int find(JobEntry &job) const;
+    friend class QueueManager;
+    
+public:
     
     JobQueue(unsigned int maxSize);
     ~JobQueue();
@@ -58,7 +67,7 @@ public:
     JobQueue& operator=(JobQueue&) = delete;
     
     void insert(JobEntry &job, bool &result);
-    void pop(JobEntry &job);
+    void pop(JobEntry &job, int index=0);
     
 };
 

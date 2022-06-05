@@ -3,9 +3,13 @@ project(Wet)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Wet main.cpp
+add_executable(Wet
 
+        segel.c segel.h
+        request.c request.h
 
         QueueManager.cpp QueueManager.h
-        test.h
-        threadQueue.cpp threadQueue.h JobQueue.cpp JobQueue.h)
+        threadQueue.cpp threadQueue.h
+        JobQueue.cpp JobQueue.h
+        Worker.cpp Worker.h
+        shit.cpp)

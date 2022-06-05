@@ -5,6 +5,7 @@
 #include "JobQueue.h"
 #include "assert.h"
 
+
 JobEntry::JobEntry(int connfd): connfd(connfd) {
     setTime(Arrival);
 }
@@ -26,7 +27,7 @@ JobEntry::JobEntry(JobEntry &job) {
     arrival_time = job.arrival_time;
     dispatch_time = job.dispatch_time;
 }
-
+/*
 JobEntry& JobEntry::operator=(JobEntry& job) {
     if(this == &job){
         return *this;
@@ -35,7 +36,7 @@ JobEntry& JobEntry::operator=(JobEntry& job) {
     this->arrival_time = job.arrival_time;
     this->dispatch_time = job.dispatch_time;
     return *this;
-}
+}*/
 
 bool operator==(const JobEntry &job1, const JobEntry& job2){
     if(job1.arrival_time.tv_usec == job2.arrival_time.tv_usec){
@@ -61,19 +62,23 @@ JobQueue::JobQueue(unsigned int maxSize){
     size = 0;
     max_size = maxSize;
     
+    for (int idx = 0; idx < max_size; idx++) {
+        array[idx] = JobEntry::NO_FD;
+    }
+    
 }
 JobQueue::~JobQueue(){
     assert(array != nullptr);
     free(array);
 }
 
-bool JobQueue::isEmpty(){
+bool JobQueue::isEmpty() const{
     if (size == 0){
         return true;
     }
     return false;
 }
-bool JobQueue::isFull(){
+bool JobQueue::isFull() const{
     if (size == max_size){
         return true;
     }
@@ -102,7 +107,7 @@ void JobQueue::insert(JobEntry &job, bool &result){
     pthread_mutex_unlock(&mutex);
 }
 
-void JobQueue::pop(JobEntry &job){
+void JobQueue::pop(JobEntry &job, int index){
     pthread_mutex_lock(&mutex);
     assert(!isEmpty());
     while (writers > 0 || isEmpty()){
@@ -113,10 +118,17 @@ void JobQueue::pop(JobEntry &job){
     
     assert(!isEmpty());
     //int index = find(job);
-    //assert(index > NotFound);
-    job = array[0];
-    for (int idx = 0; idx < max_size-1; idx++) {
-        array[idx].operator=(array[idx + 1]);
+    assert(index >= 0 && index < size);
+    
+    job = array[index];
+    for (int idx = index; idx < max_size-1; idx++) {
+        if (idx == size-1){
+            array[idx] = JobEntry::NO_FD;
+            break;
+        }
+        else{
+            array[idx].operator=(array[idx + 1]);
+        }
     }
     size--;
     
@@ -125,7 +137,7 @@ void JobQueue::pop(JobEntry &job){
     pthread_mutex_unlock(&mutex);
 }
 
-int JobQueue::find(JobEntry &job){
+int JobQueue::find(JobEntry &job) const{
     for(int i = 0; i < this->size; i++){
         if(this->array[i] == job){
             return i;
