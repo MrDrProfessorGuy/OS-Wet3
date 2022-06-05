@@ -48,8 +48,8 @@ class JobQueue{
     pthread_cond_t cond_write;
     int writers;
     
-    unsigned int max_size;
-    unsigned int size;
+    int max_size;
+    int size;
     JobEntry* array;
 
 protected:
@@ -60,7 +60,7 @@ protected:
     
 public:
     
-    JobQueue(unsigned int maxSize);
+    JobQueue(int maxSize);
     ~JobQueue();
     
     JobQueue(JobQueue&) = delete;

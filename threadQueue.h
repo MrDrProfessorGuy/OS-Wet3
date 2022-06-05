@@ -19,8 +19,8 @@ private:
     int writers;
     
     static const int NotFound = -1;
-    unsigned long max_size;
-    unsigned long size;
+    long max_size;
+    long size;
     pthread_t* array;
     
 protected:
