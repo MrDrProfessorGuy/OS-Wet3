@@ -47,7 +47,7 @@ bool operator==(const JobEntry &job1, const JobEntry& job2){
 
 
 
-JobQueue::JobQueue(int maxSize){
+JobQueue::JobQueue(){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
         assert(false);
     }
@@ -55,6 +55,13 @@ JobQueue::JobQueue(int maxSize){
         assert(false);
     }
     
+}
+
+JobQueue::~JobQueue(){
+    assert(array != nullptr);
+    free(array);
+}
+void JobQueue::Initialize(int maxSize){
     array = (JobEntry*)malloc(sizeof(JobEntry) * maxSize);
     if (array == nullptr){
         exit(0);
@@ -67,11 +74,6 @@ JobQueue::JobQueue(int maxSize){
     }
     
 }
-JobQueue::~JobQueue(){
-    assert(array != nullptr);
-    free(array);
-}
-
 bool JobQueue::isEmpty() const{
     if (size == 0){
         return true;

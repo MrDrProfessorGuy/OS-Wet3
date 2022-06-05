@@ -27,14 +27,15 @@ private:
     JobQueue jobs_queue;
     PolicyType policy;
     
-    QueueManager(int max_size, PolicyType policy);
-public:
-    QueueManager()  : handlers(0), master_waiting(0), max_size(0), size(0),
-                      thread_queue(max_size), jobs_queue(max_size), policy(DropRandom){
-
-    
+    //QueueManager(int max_size, PolicyType policy);
+    void Initialize(int maxSize, PolicyType manager_policy){
+        policy = manager_policy;
+        jobs_queue.Initialize(maxSize);
+        thread_queue.Initialize(maxSize);
     }
     
+public:
+    QueueManager();
     ~QueueManager();
     
     QueueManager(QueueManager&) = delete;

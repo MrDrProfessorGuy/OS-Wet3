@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "assert.h"
 
-threadQueue::threadQueue(unsigned int maxSize){
+threadQueue::threadQueue(){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
         assert(false);
     }
@@ -14,17 +14,19 @@ threadQueue::threadQueue(unsigned int maxSize){
         assert(false);
     }
     
+}
+threadQueue::~threadQueue(){
+    assert(array != nullptr);
+    free(array);
+}
+
+void threadQueue::Initialize(int maxSize){
     array = (pthread_t*)malloc(sizeof(pthread_t) * maxSize);
     if (array == nullptr){
         exit(0);
     }
     size = 0;
     max_size = maxSize;
-    
-}
-threadQueue::~threadQueue(){
-    assert(array != nullptr);
-    free(array);
 }
 
 bool threadQueue::isEmpty() const{

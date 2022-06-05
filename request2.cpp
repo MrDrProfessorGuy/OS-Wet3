@@ -138,7 +138,7 @@ void requestServeStatic(int fd, char *filename, int filesize)
     
     // Rather than call read() to read the file into memory,
     // which would require that we allocate a buffer, we memory-map the file
-    srcp = Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0);
+    srcp = (char*) Mmap(0, filesize, PROT_READ, MAP_PRIVATE, srcfd, 0);
     Close(srcfd);
     
     // put together response

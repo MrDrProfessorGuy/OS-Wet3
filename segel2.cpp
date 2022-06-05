@@ -4,8 +4,6 @@
 
 #include "segel2.h"
 
-#include "segel.h"
-
 /**************************
  * Error-handling functions
  **************************/

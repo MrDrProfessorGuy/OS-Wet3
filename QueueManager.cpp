@@ -3,8 +3,7 @@
 #include "segel2.h"
 #include "assert.h"
 
-QueueManager manager;
-
+/*
 QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), master_waiting(0), max_size(max_size), size(0),
                                                 thread_queue(max_size), jobs_queue(max_size), policy(policy){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
@@ -17,6 +16,18 @@ QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), maste
         assert(false);
     }
     
+}*/
+QueueManager::QueueManager() : handlers(0), master_waiting(0), max_size(0), size(0),
+                                thread_queue(), jobs_queue(), policy(Block){
+    if (pthread_mutex_init(&mutex, nullptr) != 0){
+        assert(false);
+    }
+    if (pthread_cond_init(&cond_write, nullptr) != 0){
+        assert(false);
+    }
+    if (pthread_cond_init(&cond_master, nullptr) != 0){
+        assert(false);
+    }
 }
 
 QueueManager::~QueueManager() {}
@@ -24,9 +35,9 @@ QueueManager::~QueueManager() {}
 
 QueueManager& QueueManager::getInstance() // make SmallShell singleton
 {
-    //static QueueManager abc; // Guaranteed to be destroyed.
+    static QueueManager instance; // Guaranteed to be destroyed.
     // Instantiated on first use.
-    return manager;
+    return instance;
 }
 
 

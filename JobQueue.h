@@ -57,10 +57,10 @@ protected:
     bool isFull() const;
     int find(JobEntry &job) const;
     friend class QueueManager;
-    
+    void Initialize(int maxSize);
 public:
     
-    explicit JobQueue(int maxSize);
+    explicit JobQueue();
     ~JobQueue();
     
     JobQueue(JobQueue&) = delete;

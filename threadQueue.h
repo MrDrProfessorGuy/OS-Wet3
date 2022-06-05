@@ -27,12 +27,13 @@ protected:
     bool isEmpty() const;
     bool isFull() const;
     int find(pthread_t thread_id) const;
+    void Initialize(int maxSize);
     //void printQueue() const;
 public:
     friend class QueueManager;
 
     
-    threadQueue(unsigned int maxSize);
+    threadQueue();
     ~threadQueue();
     threadQueue(threadQueue&) = delete;
     threadQueue& operator=(threadQueue&) = delete;
