@@ -4,7 +4,7 @@
 
 #include "JobQueue.h"
 #include "assert.h"
-
+#include "stdlib.h"
 
 JobEntry::JobEntry(int connfd): connfd(connfd) {
     setTime(Arrival);
