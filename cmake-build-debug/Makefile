@@ -250,6 +250,33 @@ request.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.s
 .PHONY : request.c.s
 
+request2.o: request2.cpp.o
+
+.PHONY : request2.o
+
+# target to build an object file
+request2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request2.cpp.o
+.PHONY : request2.cpp.o
+
+request2.i: request2.cpp.i
+
+.PHONY : request2.i
+
+# target to preprocess a source file
+request2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request2.cpp.i
+.PHONY : request2.cpp.i
+
+request2.s: request2.cpp.s
+
+.PHONY : request2.s
+
+# target to generate assembly for a file
+request2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request2.cpp.s
+.PHONY : request2.cpp.s
+
 segel.o: segel.c.o
 
 .PHONY : segel.o
@@ -379,6 +406,9 @@ help:
 	@echo "... request.o"
 	@echo "... request.i"
 	@echo "... request.s"
+	@echo "... request2.o"
+	@echo "... request2.i"
+	@echo "... request2.s"
 	@echo "... segel.o"
 	@echo "... segel.i"
 	@echo "... segel.s"
