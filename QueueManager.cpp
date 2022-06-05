@@ -6,7 +6,7 @@
 
 
 
-QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), max_size(max_size), size(0), master_waiting(0),
+QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), master_waiting(0), max_size(max_size), size(0),
                                                 thread_queue(max_size), jobs_queue(max_size), policy(policy){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
         assert(false);

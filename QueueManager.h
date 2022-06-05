@@ -19,8 +19,8 @@ private:
     int handlers;
     int master_waiting;
     
-    unsigned int max_size;
-    unsigned int size;
+    int max_size;
+    int size;
     
     threadQueue thread_queue;
     JobQueue jobs_queue;
@@ -44,8 +44,8 @@ public:
     
     bool isFull();
     bool isEmpty();
-    unsigned int maxSize();
-    unsigned int Size();
+    int maxSize();
+    int Size();
     void increaseSize();
     void decreaseSize();
     bool contains(JobEntry job);
