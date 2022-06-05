@@ -63,6 +63,7 @@ public:
         policy = manager_policy;
         jobs_queue.Initialize(maxSize);
         thread_queue.Initialize(maxSize);
+        max_size = maxSize;
     }
     
 };

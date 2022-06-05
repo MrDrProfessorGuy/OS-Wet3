@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     while (1) {
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
+        char a[100] = "";
         JobEntry new_job(connfd);
         manager.createJob(new_job);
         

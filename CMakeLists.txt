@@ -4,12 +4,10 @@ project(Wet)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(Wet
-
-        segel.c segel.h
-        request.c request.h
-
+        segel2.cpp segel2.h
+        request2.cpp request2.h
         QueueManager.cpp QueueManager.h
         threadQueue.cpp threadQueue.h
         JobQueue.cpp JobQueue.h
         Worker.cpp Worker.h
-        shit.cpp segel2.cpp segel2.h request2.cpp request2.h)
+        shit.cpp)

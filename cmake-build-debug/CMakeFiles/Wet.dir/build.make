@@ -76,31 +76,31 @@ include CMakeFiles/Wet.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Wet.dir/flags.make
 
-CMakeFiles/Wet.dir/segel.c.o: CMakeFiles/Wet.dir/flags.make
-CMakeFiles/Wet.dir/segel.c.o: ../segel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Wet.dir/segel.c.o"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Wet.dir/segel.c.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel.c"
+CMakeFiles/Wet.dir/segel2.cpp.o: CMakeFiles/Wet.dir/flags.make
+CMakeFiles/Wet.dir/segel2.cpp.o: ../segel2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Wet.dir/segel2.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Wet.dir/segel2.cpp.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp"
 
-CMakeFiles/Wet.dir/segel.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Wet.dir/segel.c.i"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel.c" > CMakeFiles/Wet.dir/segel.c.i
+CMakeFiles/Wet.dir/segel2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wet.dir/segel2.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp" > CMakeFiles/Wet.dir/segel2.cpp.i
 
-CMakeFiles/Wet.dir/segel.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Wet.dir/segel.c.s"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel.c" -o CMakeFiles/Wet.dir/segel.c.s
+CMakeFiles/Wet.dir/segel2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wet.dir/segel2.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp" -o CMakeFiles/Wet.dir/segel2.cpp.s
 
-CMakeFiles/Wet.dir/request.c.o: CMakeFiles/Wet.dir/flags.make
-CMakeFiles/Wet.dir/request.c.o: ../request.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Wet.dir/request.c.o"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Wet.dir/request.c.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request.c"
+CMakeFiles/Wet.dir/request2.cpp.o: CMakeFiles/Wet.dir/flags.make
+CMakeFiles/Wet.dir/request2.cpp.o: ../request2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Wet.dir/request2.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Wet.dir/request2.cpp.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp"
 
-CMakeFiles/Wet.dir/request.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Wet.dir/request.c.i"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request.c" > CMakeFiles/Wet.dir/request.c.i
+CMakeFiles/Wet.dir/request2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wet.dir/request2.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp" > CMakeFiles/Wet.dir/request2.cpp.i
 
-CMakeFiles/Wet.dir/request.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Wet.dir/request.c.s"
-	/usr/local/bin/gcc-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request.c" -o CMakeFiles/Wet.dir/request.c.s
+CMakeFiles/Wet.dir/request2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wet.dir/request2.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp" -o CMakeFiles/Wet.dir/request2.cpp.s
 
 CMakeFiles/Wet.dir/QueueManager.cpp.o: CMakeFiles/Wet.dir/flags.make
 CMakeFiles/Wet.dir/QueueManager.cpp.o: ../QueueManager.cpp
@@ -167,59 +167,29 @@ CMakeFiles/Wet.dir/shit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wet.dir/shit.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/shit.cpp" -o CMakeFiles/Wet.dir/shit.cpp.s
 
-CMakeFiles/Wet.dir/segel2.cpp.o: CMakeFiles/Wet.dir/flags.make
-CMakeFiles/Wet.dir/segel2.cpp.o: ../segel2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Wet.dir/segel2.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Wet.dir/segel2.cpp.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp"
-
-CMakeFiles/Wet.dir/segel2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wet.dir/segel2.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp" > CMakeFiles/Wet.dir/segel2.cpp.i
-
-CMakeFiles/Wet.dir/segel2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wet.dir/segel2.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.cpp" -o CMakeFiles/Wet.dir/segel2.cpp.s
-
-CMakeFiles/Wet.dir/request2.cpp.o: CMakeFiles/Wet.dir/flags.make
-CMakeFiles/Wet.dir/request2.cpp.o: ../request2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Wet.dir/request2.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Wet.dir/request2.cpp.o -c "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp"
-
-CMakeFiles/Wet.dir/request2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wet.dir/request2.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp" > CMakeFiles/Wet.dir/request2.cpp.i
-
-CMakeFiles/Wet.dir/request2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wet.dir/request2.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp" -o CMakeFiles/Wet.dir/request2.cpp.s
-
 # Object files for target Wet
 Wet_OBJECTS = \
-"CMakeFiles/Wet.dir/segel.c.o" \
-"CMakeFiles/Wet.dir/request.c.o" \
+"CMakeFiles/Wet.dir/segel2.cpp.o" \
+"CMakeFiles/Wet.dir/request2.cpp.o" \
 "CMakeFiles/Wet.dir/QueueManager.cpp.o" \
 "CMakeFiles/Wet.dir/threadQueue.cpp.o" \
 "CMakeFiles/Wet.dir/JobQueue.cpp.o" \
 "CMakeFiles/Wet.dir/Worker.cpp.o" \
-"CMakeFiles/Wet.dir/shit.cpp.o" \
-"CMakeFiles/Wet.dir/segel2.cpp.o" \
-"CMakeFiles/Wet.dir/request2.cpp.o"
+"CMakeFiles/Wet.dir/shit.cpp.o"
 
 # External object files for target Wet
 Wet_EXTERNAL_OBJECTS =
 
-Wet: CMakeFiles/Wet.dir/segel.c.o
-Wet: CMakeFiles/Wet.dir/request.c.o
+Wet: CMakeFiles/Wet.dir/segel2.cpp.o
+Wet: CMakeFiles/Wet.dir/request2.cpp.o
 Wet: CMakeFiles/Wet.dir/QueueManager.cpp.o
 Wet: CMakeFiles/Wet.dir/threadQueue.cpp.o
 Wet: CMakeFiles/Wet.dir/JobQueue.cpp.o
 Wet: CMakeFiles/Wet.dir/Worker.cpp.o
 Wet: CMakeFiles/Wet.dir/shit.cpp.o
-Wet: CMakeFiles/Wet.dir/segel2.cpp.o
-Wet: CMakeFiles/Wet.dir/request2.cpp.o
 Wet: CMakeFiles/Wet.dir/build.make
 Wet: CMakeFiles/Wet.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Wet"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Wet"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Wet.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

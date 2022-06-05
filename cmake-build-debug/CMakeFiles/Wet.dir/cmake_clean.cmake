@@ -2,9 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Wet.dir/JobQueue.cpp.o"
   "CMakeFiles/Wet.dir/QueueManager.cpp.o"
   "CMakeFiles/Wet.dir/Worker.cpp.o"
-  "CMakeFiles/Wet.dir/request.c.o"
   "CMakeFiles/Wet.dir/request2.cpp.o"
-  "CMakeFiles/Wet.dir/segel.c.o"
   "CMakeFiles/Wet.dir/segel2.cpp.o"
   "CMakeFiles/Wet.dir/shit.cpp.o"
   "CMakeFiles/Wet.dir/threadQueue.cpp.o"
@@ -13,6 +11,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C CXX)
+foreach(lang CXX)
   include(CMakeFiles/Wet.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

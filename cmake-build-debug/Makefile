@@ -223,33 +223,6 @@ Worker.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/Worker.cpp.s
 .PHONY : Worker.cpp.s
 
-request.o: request.c.o
-
-.PHONY : request.o
-
-# target to build an object file
-request.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.o
-.PHONY : request.c.o
-
-request.i: request.c.i
-
-.PHONY : request.i
-
-# target to preprocess a source file
-request.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.i
-.PHONY : request.c.i
-
-request.s: request.c.s
-
-.PHONY : request.s
-
-# target to generate assembly for a file
-request.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request.c.s
-.PHONY : request.c.s
-
 request2.o: request2.cpp.o
 
 .PHONY : request2.o
@@ -276,33 +249,6 @@ request2.s: request2.cpp.s
 request2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/request2.cpp.s
 .PHONY : request2.cpp.s
-
-segel.o: segel.c.o
-
-.PHONY : segel.o
-
-# target to build an object file
-segel.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.o
-.PHONY : segel.c.o
-
-segel.i: segel.c.i
-
-.PHONY : segel.i
-
-# target to preprocess a source file
-segel.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.i
-.PHONY : segel.c.i
-
-segel.s: segel.c.s
-
-.PHONY : segel.s
-
-# target to generate assembly for a file
-segel.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.s
-.PHONY : segel.c.s
 
 segel2.o: segel2.cpp.o
 
@@ -403,15 +349,9 @@ help:
 	@echo "... Worker.o"
 	@echo "... Worker.i"
 	@echo "... Worker.s"
-	@echo "... request.o"
-	@echo "... request.i"
-	@echo "... request.s"
 	@echo "... request2.o"
 	@echo "... request2.i"
 	@echo "... request2.s"
-	@echo "... segel.o"
-	@echo "... segel.i"
-	@echo "... segel.s"
 	@echo "... segel2.o"
 	@echo "... segel2.i"
 	@echo "... segel2.s"
