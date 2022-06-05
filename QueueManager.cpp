@@ -1,10 +1,9 @@
 
 #include "QueueManager.h"
 #include "segel.h"
-#include "math.h"
 #include "assert.h"
 
-
+QueueManager manager;
 
 QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), master_waiting(0), max_size(max_size), size(0),
                                                 thread_queue(max_size), jobs_queue(max_size), policy(policy){
@@ -22,11 +21,12 @@ QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), maste
 
 QueueManager::~QueueManager() {}
 
- QueueManager& QueueManager::getInstance() // make SmallShell singleton
+
+QueueManager& QueueManager::getInstance() // make SmallShell singleton
 {
-    static QueueManager abc; // Guaranteed to be destroyed.
+    //static QueueManager abc; // Guaranteed to be destroyed.
     // Instantiated on first use.
-    return abc;
+    return manager;
 }
 
 

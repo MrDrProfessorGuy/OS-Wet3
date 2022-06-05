@@ -5,7 +5,6 @@
 #include "Worker.h"
 #include "QueueManager.h"
 #include "request.h"
-#include "segel.h"
 #include "assert.h"
 
 Worker::Worker() : current_job(JobEntry::NO_FD) {}

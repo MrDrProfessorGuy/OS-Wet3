@@ -11,7 +11,7 @@
 class QueueManager{
 public:
     enum PolicyType {Block, DropRandom, DropTail, DropHead};
-    static QueueManager& instance;
+    //static QueueManager& instance;
     
 private:
     pthread_mutex_t mutex;
