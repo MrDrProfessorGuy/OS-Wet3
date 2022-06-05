@@ -60,7 +60,7 @@ protected:
     
 public:
     
-    JobQueue(int maxSize);
+    explicit JobQueue(int maxSize);
     ~JobQueue();
     
     JobQueue(JobQueue&) = delete;

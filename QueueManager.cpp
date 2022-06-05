@@ -30,13 +30,6 @@ QueueManager& QueueManager::getInstance() // make SmallShell singleton
 }
 
 
-QueueManager& QueueManager::AuxGetInstance(int max_size, PolicyType policy) {
-     static QueueManager asd(max_size, policy); // Guaranteed to be destroyed.
-    // Instantiated on first use.
-    return asd;
-}
-
-
 bool QueueManager::policyHandler(JobEntry& job) {
     
     if(policy == Block){
@@ -66,6 +59,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
         return true;
     }
 }
+
 void QueueManager::createJob(JobEntry job){
     pthread_mutex_lock(&mutex);
     master_waiting++;
@@ -164,7 +158,6 @@ void QueueManager::decreaseSize(){
 }
 bool QueueManager::contains(JobEntry job) {
     
-    //return mapContains(this->list,(MapKeyElement) &job.arrival_time.tv_usec);
     return true;
 }
 

@@ -41,7 +41,6 @@ public:
     QueueManager& operator=(QueueManager&) = delete;
     
     static QueueManager& getInstance();
-    static QueueManager& AuxGetInstance(int max_size, PolicyType policy);
     
     void createJob(JobEntry job);
     //JobEntry getJob();
