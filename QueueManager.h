@@ -7,6 +7,7 @@
 #include "threadQueue.h"
 
 
+
 class QueueManager{
 public:
     enum PolicyType {Block, DropRandom, DropTail, DropHead};
@@ -28,6 +29,11 @@ private:
     
     QueueManager(int max_size, PolicyType policy);
 public:
+    QueueManager()  : handlers(0), master_waiting(0), max_size(0), size(0),
+                      thread_queue(max_size), jobs_queue(max_size), policy(DropRandom){
+
+    
+    }
     
     ~QueueManager();
     
@@ -60,8 +66,6 @@ public:
     }
     
 };
-
-
 
 
 

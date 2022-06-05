@@ -24,15 +24,16 @@ QueueManager::~QueueManager() {}
 
  QueueManager& QueueManager::getInstance() // make SmallShell singleton
 {
-    return instance;
+    static QueueManager abc; // Guaranteed to be destroyed.
+    // Instantiated on first use.
+    return abc;
 }
 
 
-QueueManager& QueueManager::AuxGetInstance(int max_size, PolicyType policy) // make SmallShell singleton
-{
-    static QueueManager instance(max_size, policy); // Guaranteed to be destroyed.
+QueueManager& QueueManager::AuxGetInstance(int max_size, PolicyType policy) {
+     static QueueManager asd(max_size, policy); // Guaranteed to be destroyed.
     // Instantiated on first use.
-    return instance;
+    return asd;
 }
 
 

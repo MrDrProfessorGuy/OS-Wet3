@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
         policy = QueueManager::DropRandom;
     }
     
-    QueueManager& manager = QueueManager::AuxGetInstance(queue_size, policy);
+    QueueManager& manager = QueueManager::getInstance();
     BadWorker* workers = (BadWorker *) malloc(sizeof(BadWorker)*threads_num);
     for (int thread = 0; thread < threads_num; thread++) {
         BadWorkerInit(workers[thread]);
