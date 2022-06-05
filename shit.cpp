@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
     }
     
     QueueManager& manager = QueueManager::getInstance();
+    manager.Initialize(queue_size, policy);
     BadWorker* workers = (BadWorker *) malloc(sizeof(BadWorker)*threads_num);
     for (int thread = 0; thread < threads_num; thread++) {
         BadWorkerInit(workers[thread]);

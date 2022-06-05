@@ -28,11 +28,6 @@ private:
     PolicyType policy;
     
     //QueueManager(int max_size, PolicyType policy);
-    void Initialize(int maxSize, PolicyType manager_policy){
-        policy = manager_policy;
-        jobs_queue.Initialize(maxSize);
-        thread_queue.Initialize(maxSize);
-    }
     
 public:
     QueueManager();
@@ -63,6 +58,11 @@ public:
         }
         pthread_mutex_unlock(&mutex);
         return true;
+    }
+    void Initialize(int maxSize, PolicyType manager_policy){
+        policy = manager_policy;
+        jobs_queue.Initialize(maxSize);
+        thread_queue.Initialize(maxSize);
     }
     
 };
