@@ -3,6 +3,7 @@
 //
 
 #include "threadQueue.h"
+#include <stdlib.h>
 #include "assert.h"
 
 threadQueue::threadQueue(unsigned int maxSize){
