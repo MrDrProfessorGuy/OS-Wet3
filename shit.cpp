@@ -1,4 +1,4 @@
-#include "segel.h"
+#include "segel2.h"
 #include "Worker.h"
 #include "QueueManager.h"
 

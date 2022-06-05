@@ -277,6 +277,33 @@ segel.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel.c.s
 .PHONY : segel.c.s
 
+segel2.o: segel2.cpp.o
+
+.PHONY : segel2.o
+
+# target to build an object file
+segel2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel2.cpp.o
+.PHONY : segel2.cpp.o
+
+segel2.i: segel2.cpp.i
+
+.PHONY : segel2.i
+
+# target to preprocess a source file
+segel2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel2.cpp.i
+.PHONY : segel2.cpp.i
+
+segel2.s: segel2.cpp.s
+
+.PHONY : segel2.s
+
+# target to generate assembly for a file
+segel2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Wet.dir/build.make CMakeFiles/Wet.dir/segel2.cpp.s
+.PHONY : segel2.cpp.s
+
 shit.o: shit.cpp.o
 
 .PHONY : shit.o
@@ -355,6 +382,9 @@ help:
 	@echo "... segel.o"
 	@echo "... segel.i"
 	@echo "... segel.s"
+	@echo "... segel2.o"
+	@echo "... segel2.i"
+	@echo "... segel2.s"
 	@echo "... shit.o"
 	@echo "... shit.i"
 	@echo "... shit.s"

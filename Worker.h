@@ -7,7 +7,7 @@
 
 #include "pthread.h"
 
-extern class JobEntry;
+#include "JobQueue.h"
 
 class Worker {
 private:

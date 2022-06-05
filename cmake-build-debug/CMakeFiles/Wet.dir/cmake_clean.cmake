@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Wet.dir/Worker.cpp.o"
   "CMakeFiles/Wet.dir/request.c.o"
   "CMakeFiles/Wet.dir/segel.c.o"
+  "CMakeFiles/Wet.dir/segel2.cpp.o"
   "CMakeFiles/Wet.dir/shit.cpp.o"
   "CMakeFiles/Wet.dir/threadQueue.cpp.o"
   "Wet"

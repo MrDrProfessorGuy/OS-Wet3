@@ -1,6 +1,6 @@
 
 #include "QueueManager.h"
-#include "segel.h"
+#include "segel2.h"
 #include "assert.h"
 
 QueueManager manager;
