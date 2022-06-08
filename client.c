@@ -22,7 +22,7 @@
  */
 
 #include "segel.h"
-
+#include "time.h"
 /*
  * Send an HTTP request for the specified file 
  */
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 
   /* Open a single connection to the specified host and port */
   clientfd = Open_clientfd(host, port);
-  
+  sleep(10);
   clientSend(clientfd, filename);
   clientPrint(clientfd);
     
