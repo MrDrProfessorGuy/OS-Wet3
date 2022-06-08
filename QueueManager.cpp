@@ -55,16 +55,19 @@ bool QueueManager::policyHandler(JobEntry& job) {
     }
     else if(policy == DropTail){
         Close(job.connfd);
+        cout << "Policy::DropTail:: fd="<<job.connfd << endl;
         return false;
     }
     else if(policy == DropHead){
         JobEntry oldest(JobEntry::NO_FD);
         if (!jobs_queue.isEmpty()){
             jobs_queue.pop(oldest);
+            cout << "Policy::DropHead:: fd="<<oldest.connfd << endl;
             Close(oldest.connfd);
             return true;
         }
         else{
+            cout << "Policy::DropHead::Empty fd="<<job.connfd << endl;
             Close(job.connfd);
             return false;
         }
