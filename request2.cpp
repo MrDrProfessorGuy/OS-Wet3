@@ -8,6 +8,7 @@
 //
 
 #include "segel2.h"
+#include "iostream"
 
 // requestError(      fd,    filename,        "404",    "Not found", "OS-HW3 Server could not find this file");
 void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg)
@@ -164,6 +165,7 @@ void requestHandle(int fd)
     char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
     char filename[MAXLINE], cgiargs[MAXLINE];
     rio_t rio;
+    
     
     Rio_readinitb(&rio, fd);
     Rio_readlineb(&rio, buf, MAXLINE);
