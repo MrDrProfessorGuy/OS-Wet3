@@ -185,7 +185,7 @@ void QueueManager::finishRequest(JobEntry &job){
 
 
 bool QueueManager::isFull(){
-    return (this->size => this->max_size);
+    return (this->size >= this->max_size);
 }
 
 bool QueueManager::isEmpty() {
