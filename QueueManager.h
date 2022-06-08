@@ -28,6 +28,14 @@ private:
     PolicyType policy;
     
     //QueueManager(int max_size, PolicyType policy);
+    bool isFull();
+    bool isEmpty();
+    int maxSize();
+    int Size();
+    void increaseSize();
+    void decreaseSize();
+    bool contains(JobEntry job);
+    bool policyHandler(JobEntry &job);
     
 public:
     QueueManager();
@@ -43,14 +51,7 @@ public:
     void getRequest(JobEntry &job);
     void finishRequest(JobEntry &job);
     
-    bool isFull();
-    bool isEmpty();
-    int maxSize();
-    int Size();
-    void increaseSize();
-    void decreaseSize();
-    bool contains(JobEntry job);
-    bool policyHandler(JobEntry &job);
+    
     
     bool lockAcquired(){
         if (pthread_mutex_trylock(&mutex) != 0){
