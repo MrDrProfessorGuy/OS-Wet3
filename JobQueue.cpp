@@ -107,7 +107,7 @@ void JobQueue::insert(JobEntry &job, bool &result){
         size++;
     }
     
-    cout << "================== JobQueue::Insert ==================" << endl;
+    cout << "================== JobQueue::Insert["<<size<<"] ==================" << endl;
     for (int i = 0; i < size; i++) {
         cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
     }
@@ -143,7 +143,7 @@ void JobQueue::pop(JobEntry &job, int index){
     }
     size--;
     
-    cout << "================== JobQueue::Pop ==================" << endl;
+    cout << "================== JobQueue::Pop["<<size<<"] ==================" << endl;
     for (int i = 0; i < size; i++) {
         cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
     }
