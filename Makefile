@@ -5,8 +5,8 @@
 OBJS =  request.o segel.o client.o Worker.o QueueManager.o JobQueue.o threadQueue.o shit.o
 TARGET = server
 
-CC = g++
-CFLAGS = -std=c++11 -Wall
+CC = gcc
+CFLAGS = -g -Wall
 
 LIBS = -lpthread 
 
@@ -17,7 +17,7 @@ all: server client output.cgi
 	-cp output.cgi favicon.ico home.html public
 
 server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
-	g++ -std=c++11 shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
+	g++ -std=c++11 shit.cpp Worker.cpp QueueManager.cpp JobQueue.cpp threadQueue.cpp request2.cpp segel2.cpp -lpthread
 
 client: client.o segel.o
 	$(CC) $(CFLAGS) -o client client.o segel.o

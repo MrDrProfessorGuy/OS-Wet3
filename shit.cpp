@@ -2,6 +2,8 @@
 #include "Worker.h"
 #include "QueueManager.h"
 
+#include "iostream"
+using namespace std;
 //
 // server.c: A very, very simple web server
 //
@@ -54,6 +56,12 @@ int main(int argc, char *argv[])
         policy = QueueManager::DropRandom;
     }
     
+    cout << "=======================================================================" << endl;
+    cout << "=========================== Server Starting ===========================" << endl;
+    cout << "=======================================================================" << endl;
+    
+    cout << "=========================== Creating Threads ===========================" << endl;
+    
     QueueManager& manager = QueueManager::getInstance();
     manager.Initialize(queue_size, policy);
     BadWorker* workers = (BadWorker *) malloc(sizeof(BadWorker)*threads_num);
@@ -63,6 +71,7 @@ int main(int argc, char *argv[])
             unix_error("pthread_create error");
         }
     }
+    cout << "=========================== Threads Were Created ===========================" << endl;
     
     
     listenfd = Open_listenfd(port);
@@ -70,8 +79,9 @@ int main(int argc, char *argv[])
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
         JobEntry new_job(connfd);
+        cout << "Master::New Connection{ fd="<<connfd<<" }" << endl;
         manager.createJob(new_job);
-
+        
         //
         // HW3: In general, don't handle the request in the main thread.
         // Save the relevant info in a buffer and have one of the worker threads

@@ -5,7 +5,10 @@
 #include "Worker.h"
 #include "QueueManager.h"
 #include "request2.h"
+
 #include "assert.h"
+#include "iostream"
+using namespace std;
 
 Worker::Worker() : current_job(JobEntry::NO_FD) {}
 Worker::~Worker() {}
@@ -28,6 +31,8 @@ void Worker::start() {
 void* startButInShittyCode(void* worker_arg) {
     BadWorker& worker = (BadWorker&) worker_arg;
     QueueManager& manager = QueueManager::getInstance();
+    
+    cout << "Thread(" << pthread_self() << "):: Started" << endl;
     
     while (true){
         manager.getRequest(worker.current_job);
