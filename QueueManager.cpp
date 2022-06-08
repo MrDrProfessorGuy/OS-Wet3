@@ -64,6 +64,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
             jobs_queue.pop(oldest);
             cout << "Policy::DropHead:: fd="<<oldest.connfd << endl;
             Close(oldest.connfd);
+            size--;
             return true;
         }
         else{
@@ -85,6 +86,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
             jobs_queue.pop(deleted_job,delete_idx);
             cout << "Policy::Random:: fd="<<deleted_job.connfd << endl;
             Close(deleted_job.connfd);
+            size--;
         }
         if (isFull()){
             close(job.connfd);
@@ -185,7 +187,7 @@ void QueueManager::finishRequest(JobEntry &job){
 
 
 bool QueueManager::isFull(){
-    return (this->size >= this->max_size);
+    return (this->size == this->max_size);
 }
 
 bool QueueManager::isEmpty() {
