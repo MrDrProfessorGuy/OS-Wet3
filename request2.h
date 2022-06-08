@@ -4,8 +4,8 @@
 
 #ifndef WET_REQUEST2_H
 #define WET_REQUEST2_H
-
-void requestHandle(int fd);
+#include "Worker.h"
+void requestHandle(int fd, BadWorker& worker);
 
 
 

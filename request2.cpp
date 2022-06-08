@@ -3,7 +3,7 @@
 //
 
 #include "request2.h"
-#include "Worker.h"
+
 //
 // request.c: Does the bulk of the work for the web server.
 //
@@ -139,7 +139,7 @@ void printStats(BadWorker& worker, char* buf){
     
     sprintf(buf, "%sStat-Req-Arrival:: %lu.%06lu\r\n", buf,worker.current_job.arrival_time.tv_sec, worker.current_job.arrival_time.tv_usec);
     sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,dispatch_interval_s,dispatch_interval_us);
-    sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread);
+    sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
     sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
     sprintf(buf, "%sStat-Thread-Static:: %d\r\n", buf,worker.static_count);
     sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);

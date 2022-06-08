@@ -21,7 +21,7 @@ void Worker::start() {
         assert(current_job.connfd != JobEntry::NO_FD);
         current_job.setTime(JobEntry::Dispatch);
     
-        requestHandle(current_job.connfd);
+        //requestHandle(current_job.connfd);
         manager.finishRequest(current_job);
         
     }
@@ -33,17 +33,17 @@ void* startButInShittyCode(void* worker_arg) {
     worker->thread = pthread_self();
     QueueManager& manager = QueueManager::getInstance();
     
-    cout << "Thread(" << pthread_self() << "):: Started" << endl;
+    cout << "Thread(" << worker->thread_id << "):: Started" << endl;
     
     while (true){
         manager.getRequest(worker->current_job);
         worker->total_count++;
         assert(worker->current_job.connfd != JobEntry::NO_FD);
-        //cout << "Thread(" << pthread_self() << "=========BeforeSetTime=========" << endl;
+        //cout << "Thread(" << worker->thread_id << "=========BeforeSetTime=========" << endl;
         worker->current_job.setTime(JobEntry::Dispatch);
-        //cout << "Thread(" << pthread_self() << "=========BeforeRequestHandle=========" << endl;
+        //cout << "Thread(" << worker->thread_id << "=========BeforeRequestHandle=========" << endl;
     
-        requestHandle(worker->current_job.connfd);
+        requestHandle(worker->current_job.connfd, *worker);
         manager.finishRequest(worker->current_job);
     }
 }
