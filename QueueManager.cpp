@@ -75,7 +75,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
 
     }
     else{
-        int del_num = roundf(0.3*size + 0.5);
+        int del_num = (int)(0.3*size);
         //cout << "Policy::Random:: del_num="<<del_num << endl;
         JobEntry deleted_job(JobEntry::NO_FD);
         for(int i = 0; i < del_num; i++){
