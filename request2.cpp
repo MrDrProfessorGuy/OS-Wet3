@@ -41,7 +41,11 @@ void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longm
     
     printStats(worker, buf);
     Rio_writen(fd, buf, strlen(buf));
-    printf("%s\r\n", buf);
+    printf("%s", buf);
+    
+    sprintf(buf, "\r\n", strlen(body));
+    Rio_writen(fd, buf, strlen(buf));
+    printf("%s", buf);
     
     // Write out the content
     Rio_writen(fd, body, strlen(body));
