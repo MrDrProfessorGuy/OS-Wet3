@@ -23,6 +23,8 @@
 
 #include "segel.h"
 #include "time.h"
+
+char* FileName;
 /*
  * Send an HTTP request for the specified file 
  */
@@ -70,8 +72,8 @@ void clientPrint(int fd)
     n = Rio_readlineb(&rio, buf, MAXBUF);
   }
 }
-void do_client(int fd, char* filename){
-    clientSend(fd, filename);
+void do_client(int fd){
+    clientSend(fd, FileName);
     clientPrint(fd);
     Close(fd);
 }
@@ -80,7 +82,7 @@ int main(int argc, char *argv[])
   char *host, *filename;
   int port;
   int clientfd;
-
+    FileName = filename;
   if (argc != 4) {
     fprintf(stderr, "Usage: %s <host> <port> <filename>\n", argv[0]);
     exit(1);
@@ -94,7 +96,7 @@ int main(int argc, char *argv[])
     pthread_t clients[num_of_clients];
     for (int thread = 0; thread < num_of_clients; thread++) {
         int client_fd2 = Open_clientfd(host, port);;
-        if (pthread_create(&(clients[thread]), NULL, do_client, client_fd2, filename) != 0){
+        if (pthread_create(&(clients[thread]), NULL, do_client, client_fd2) != 0){
             unix_error("pthread_create error");
         }
     }
