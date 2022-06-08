@@ -69,10 +69,9 @@ int main(int argc, char *argv[])
     while (1) {
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
-        char a[100] = "";
         JobEntry new_job(connfd);
         manager.createJob(new_job);
-        
+
         //
         // HW3: In general, don't handle the request in the main thread.
         // Save the relevant info in a buffer and have one of the worker threads

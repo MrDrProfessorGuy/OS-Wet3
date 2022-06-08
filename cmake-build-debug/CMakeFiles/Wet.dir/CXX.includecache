@@ -12,37 +12,17 @@ sys/time.h
 pthread.h
 -
 
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.cpp
-QueueManager.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h
-segel2.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.h
-assert.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/assert.h
-
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h
 JobQueue.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/JobQueue.h
 threadQueue.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/threadQueue.h
 
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.cpp
-Worker.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h
-QueueManager.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h
-request2.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.h
-assert.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/assert.h
-
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h
 pthread.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/pthread.h
 JobQueue.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/JobQueue.h
-
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.h
 
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.h
 stdio.h
