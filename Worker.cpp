@@ -33,7 +33,7 @@ void* startButInShittyCode(void* worker_arg) {
     worker->thread = pthread_self();
     QueueManager& manager = QueueManager::getInstance();
     
-    cout << "Thread(" << worker->thread_id << "):: Started" << endl;
+    //cout << "Thread(" << worker->thread_id << "):: Started" << endl;
     
     while (true){
         manager.getRequest(worker->current_job);

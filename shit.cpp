@@ -56,11 +56,11 @@ int main(int argc, char *argv[])
         policy = QueueManager::DropRandom;
     }
     
-    cout << "=======================================================================" << endl;
-    cout << "=========================== Server Starting ===========================" << endl;
-    cout << "=======================================================================" << endl;
+    //cout << "=======================================================================" << endl;
+    //cout << "=========================== Server Starting ===========================" << endl;
+    //cout << "=======================================================================" << endl;
     
-    cout << "=========================== Creating Threads ===========================" << endl;
+    //cout << "=========================== Creating Threads ===========================" << endl;
     
     QueueManager& manager = QueueManager::getInstance();
     manager.Initialize(queue_size, policy);
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
             unix_error("pthread_create error");
         }
     }
-    cout << "=========================== Threads Were Created ===========================" << endl;
+    //cout << "=========================== Threads Were Created ===========================" << endl;
     
     
     listenfd = Open_listenfd(port);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
         clientlen = sizeof(clientaddr);
         connfd = Accept(listenfd, (SA *)&clientaddr, (socklen_t *) &clientlen);
         JobEntry new_job(connfd);
-        cout << "Master::New Connection{ fd="<<connfd<<" }" << endl;
+        //cout << "Master::New Connection{ fd="<<connfd<<" }" << endl;
         manager.createJob(new_job);
         
         //
