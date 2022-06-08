@@ -46,7 +46,7 @@ QueueManager& QueueManager::getInstance() // make SmallShell singleton
 
 
 bool QueueManager::policyHandler(JobEntry& job) {
-    cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
+    //cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
     if(policy == Block){
         while(isFull()){
             pthread_cond_wait(&cond_write, &mutex);
@@ -55,20 +55,20 @@ bool QueueManager::policyHandler(JobEntry& job) {
     }
     else if(policy == DropTail){
         Close(job.connfd);
-        cout << "Policy::DropTail:: fd="<<job.connfd << endl;
+        //cout << "Policy::DropTail:: fd="<<job.connfd << endl;
         return false;
     }
     else if(policy == DropHead){
         JobEntry oldest(JobEntry::NO_FD);
         if (!jobs_queue.isEmpty()){
             jobs_queue.pop(oldest);
-            cout << "Policy::DropHead:: fd="<<oldest.connfd << endl;
+            //cout << "Policy::DropHead:: fd="<<oldest.connfd << endl;
             Close(oldest.connfd);
             size--;
             return true;
         }
         else{
-            cout << "Policy::DropHead::Empty fd="<<job.connfd << endl;
+            //cout << "Policy::DropHead::Empty fd="<<job.connfd << endl;
             Close(job.connfd);
             return false;
         }
@@ -76,7 +76,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
     }
     else{
         int del_num = roundf(0.3*size + 0.5);
-        cout << "Policy::Random:: del_num="<<del_num << endl;
+        //cout << "Policy::Random:: del_num="<<del_num << endl;
         JobEntry deleted_job(JobEntry::NO_FD);
         for(int i = 0; i < del_num; i++){
             if (jobs_queue.isEmpty()){
@@ -84,7 +84,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
             }
             int delete_idx = rand()%jobs_queue.size;
             jobs_queue.pop(deleted_job,delete_idx);
-            cout << "Policy::Random:: fd="<<deleted_job.connfd << endl;
+            //cout << "Policy::Random:: fd="<<deleted_job.connfd << endl;
             Close(deleted_job.connfd);
             size--;
         }
@@ -97,7 +97,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
 }
 
 void QueueManager::createJob(JobEntry job){
-    cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
+    //cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
     pthread_mutex_lock(&mutex);
     master_waiting++;
     while (handlers > 0){
@@ -120,7 +120,7 @@ void QueueManager::createJob(JobEntry job){
             size++;
         }
         else{
-            cout << "createJob::result=False" << endl;
+            //cout << "createJob::result=False" << endl;
         }
     }
     //cout << "Master::createJob()::Done fd="<<job.connfd << endl;

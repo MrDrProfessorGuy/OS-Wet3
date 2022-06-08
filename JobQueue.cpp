@@ -106,13 +106,13 @@ void JobQueue::insert(JobEntry &job, bool &result){
         array[size].operator=(job);
         size++;
     }
-    
+    /*
     cout << "================== JobQueue::Insert["<<size<<"] ==================" << endl;
     for (int i = 0; i < size; i++) {
         cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
     }
     cout << "======================================================" << endl;
-    
+    */
     writers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
@@ -142,13 +142,13 @@ void JobQueue::pop(JobEntry &job, int index){
         }
     }
     size--;
-    
+    /*
     cout << "================== JobQueue::Pop["<<size<<"] ==================" << endl;
     for (int i = 0; i < size; i++) {
         cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
     }
     cout << "======================================================" << endl;
-    
+    */
     writers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
