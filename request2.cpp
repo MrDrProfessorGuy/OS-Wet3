@@ -31,11 +31,11 @@ void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longm
     Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     
-    sprintf(buf, "Content-Type: text/html\r\n");
+    sprintf(buf, "Content-Type: text/html");
     Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     
-    sprintf(buf, "Content-Length: %lu\r\n", strlen(body));
+    sprintf(buf, "Content-Length: %lu", strlen(body));
     Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     
@@ -123,7 +123,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     // The CGI script has to finish writing out the header.
     sprintf(buf, "HTTP/1.0 200 OK\r\n");
     sprintf(buf, "%sServer: OS-HW3 Web Server\r\n", buf);
-    
+    printStats(worker, buf);
     Rio_writen(fd, buf, strlen(buf));
     
     if (Fork() == 0) {
@@ -135,7 +135,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     }
     Wait(NULL);
     
-    printStats(worker, buf);
+    
 }
 
 void printStats(BadWorker& worker, char* buf){
