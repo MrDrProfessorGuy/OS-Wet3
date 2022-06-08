@@ -27,6 +27,10 @@ public:
 typedef struct worket_t{
     JobEntry current_job;
     pthread_t thread;
+    int total_count;
+    int static_count;
+    int dynamic_count;
+    
 }BadWorker;
 
 
