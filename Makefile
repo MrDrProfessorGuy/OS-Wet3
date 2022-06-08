@@ -17,7 +17,7 @@ all: server client output.cgi
 	-cp output.cgi favicon.ico home.html public
 
 server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
-	g++ -std=c++11 shit.cpp Worker.cpp QueueManager.cpp JobQueue.cpp threadQueue.cpp request2.cpp segel2.cpp -lpthread
+	g++ -std=c++11 -o server shit.cpp Worker.cpp QueueManager.cpp JobQueue.cpp threadQueue.cpp request2.cpp segel2.cpp -lpthread
 
 client: client.o segel.o
 	$(CC) $(CFLAGS) -o client client.o segel.o -lpthread

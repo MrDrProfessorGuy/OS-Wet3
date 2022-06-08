@@ -184,10 +184,10 @@ void requestHandle(int fd, BadWorker& worker)
     char filename[MAXLINE], cgiargs[MAXLINE];
     rio_t rio;
     
-    cout << "Thread(" << pthread_self() << ")::requestHandle()::1 fd="<<fd << endl;
+    //cout << "Thread(" << pthread_self() << ")::requestHandle()::1 fd="<<fd << endl;
     Rio_readinitb(&rio, fd);
     Rio_readlineb(&rio, buf, MAXLINE);
-    cout << "Thread(" << pthread_self() << ")::requestHandle()::2 fd="<<fd << endl;
+    //cout << "Thread(" << pthread_self() << ")::requestHandle()::2 fd="<<fd << endl;
     sscanf(buf, "%s %s %s", method, uri, version);
     
     printf("%s %s %s\n", method, uri, version);
