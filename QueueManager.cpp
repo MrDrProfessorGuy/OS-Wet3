@@ -1,7 +1,10 @@
 
 #include "QueueManager.h"
 #include "segel2.h"
+
 #include "assert.h"
+#include "iostream"
+using namespace std;
 
 /*
 QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), master_waiting(0), max_size(max_size), size(0),
@@ -79,6 +82,7 @@ void QueueManager::createJob(JobEntry job){
     }
     master_waiting--;
     handlers++;
+    cout << "Master::createJob()::1 fd="<<job.connfd << endl;
     
     bool create = true;
     if (isFull()){
@@ -92,6 +96,7 @@ void QueueManager::createJob(JobEntry job){
             size++;
         }
     }
+    cout << "Master::createJob()::2 fd="<<job.connfd << endl;
     
     handlers--;
     pthread_cond_signal(&cond_write);
