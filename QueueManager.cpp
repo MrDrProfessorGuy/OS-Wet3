@@ -65,6 +65,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
             return true;
         }
         else{
+            Close(job.connfd);
             return false;
         }
 

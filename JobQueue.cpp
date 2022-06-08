@@ -6,6 +6,9 @@
 #include "assert.h"
 #include "stdlib.h"
 
+#include "iostream"
+using namespace std;
+
 JobEntry::JobEntry(int connfd): connfd(connfd) {
     setTime(Arrival);
 }
@@ -104,6 +107,12 @@ void JobQueue::insert(JobEntry &job, bool &result){
         size++;
     }
     
+    cout << "================== JobQueue::Insert ==================" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
+    }
+    cout << "======================================================" << endl;
+    
     writers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
@@ -133,6 +142,12 @@ void JobQueue::pop(JobEntry &job, int index){
         }
     }
     size--;
+    
+    cout << "================== JobQueue::Pop ==================" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
+    }
+    cout << "======================================================" << endl;
     
     writers--;
     pthread_cond_signal(&cond_write);
