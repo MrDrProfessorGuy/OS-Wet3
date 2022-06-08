@@ -9,6 +9,7 @@
 
 #include "segel2.h"
 #include "iostream"
+using namespace std;
 
 // requestError(      fd,    filename,        "404",    "Not found", "OS-HW3 Server could not find this file");
 void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg)
@@ -166,9 +167,10 @@ void requestHandle(int fd)
     char filename[MAXLINE], cgiargs[MAXLINE];
     rio_t rio;
     
-    
+    cout << "Thread(" << pthread_self() << ")::requestHandle()::1 fd="<<fd << endl;
     Rio_readinitb(&rio, fd);
     Rio_readlineb(&rio, buf, MAXLINE);
+    cout << "Thread(" << pthread_self() << ")::requestHandle()::2 fd="<<fd << endl;
     sscanf(buf, "%s %s %s", method, uri, version);
     
     printf("%s %s %s\n", method, uri, version);
