@@ -113,7 +113,7 @@ void QueueManager::createJob(JobEntry job){
             size++;
         }
         else{
-      //      cout << "createJob::result=False" << endl;
+            cout << "createJob::result=False" << endl;
         }
     }
     //cout << "Master::createJob()::Done fd="<<job.connfd << endl;
