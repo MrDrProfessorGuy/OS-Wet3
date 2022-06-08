@@ -46,7 +46,7 @@ QueueManager& QueueManager::getInstance() // make SmallShell singleton
 
 
 bool QueueManager::policyHandler(JobEntry& job) {
-    //cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
+    cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
     if(policy == Block){
         while(isFull()){
             pthread_cond_wait(&cond_write, &mutex);
@@ -75,6 +75,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
     }
     else{
         int del_num = roundf(0.7*size + 0.5);
+        cout << "Policy::Random:: del_num="<<del_num << endl;
         JobEntry deleted_job(JobEntry::NO_FD);
         for(int i = 0; i < del_num; i++){
             if (jobs_queue.isEmpty()){
@@ -82,6 +83,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
             }
             int delete_idx = rand()%jobs_queue.size;
             jobs_queue.pop(deleted_job,delete_idx);
+            cout << "Policy::Random:: fd="<<deleted_job.connfd << endl;
             Close(deleted_job.connfd);
         }
         if (isFull()){
