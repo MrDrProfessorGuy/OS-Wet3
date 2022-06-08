@@ -45,7 +45,7 @@ QueueManager& QueueManager::getInstance() // make SmallShell singleton
 
 
 bool QueueManager::policyHandler(JobEntry& job) {
-    
+    cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
     if(policy == Block){
         while(isFull()){
             pthread_cond_wait(&cond_write, &mutex);
@@ -82,7 +82,6 @@ void QueueManager::createJob(JobEntry job){
     }
     master_waiting--;
     handlers++;
-    cout << "Master::createJob()::1 fd="<<job.connfd << endl;
     
     bool create = true;
     if (isFull()){
@@ -96,7 +95,7 @@ void QueueManager::createJob(JobEntry job){
             size++;
         }
     }
-    cout << "Master::createJob()::2 fd="<<job.connfd << endl;
+    cout << "Master::createJob()::Done fd="<<job.connfd << endl;
     
     handlers--;
     pthread_cond_signal(&cond_write);
@@ -114,6 +113,8 @@ void QueueManager::getRequest(JobEntry &job){
     jobs_queue.pop(job);
     thread_queue.insert(result);
     assert(result);
+    cout << "Thread(" << pthread_self() << ")::getRequest():: fd="<<job.connfd << endl;
+    
     
     handlers--;
     if (master_waiting > 0 && !isFull()){
@@ -133,11 +134,12 @@ void QueueManager::finishRequest(JobEntry &job){
     }
     handlers++;
     
-    
+    cout << "Thread(" << pthread_self() << ")::finishRequest():: fd="<<job.connfd << endl;
     thread_queue.remove();
     Close(job.connfd);
     job.connfd = JobEntry::NO_FD;
     size--;
+    
     
     handlers--;
     if (master_waiting > 0){
