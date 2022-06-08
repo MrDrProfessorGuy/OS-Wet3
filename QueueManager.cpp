@@ -31,7 +31,7 @@ QueueManager::QueueManager() : handlers(0), master_waiting(0), max_size(0), size
     if (pthread_cond_init(&cond_master, nullptr) != 0){
         assert(false);
     }
-    cout << "QueueManager:: Initialized"<< endl;
+    //cout << "QueueManager:: Initialized"<< endl;
 }
 
 QueueManager::~QueueManager() {}
@@ -100,22 +100,22 @@ void QueueManager::createJob(JobEntry job){
     
     bool create = true;
     if (isFull()){
-        cout << "createJob::QueueFull fd=" << job.connfd << endl;
+        //cout << "createJob::QueueFull fd=" << job.connfd << endl;
         create = policyHandler(job);
     }
     
     if (create){
-        cout << "createJob::insert fd=" << job.connfd << endl;
+        //cout << "createJob::insert fd=" << job.connfd << endl;
         bool result = false;
         jobs_queue.insert(job, result);
         if(result){
             size++;
         }
         else{
-            cout << "createJob::result=False" << endl;
+      //      cout << "createJob::result=False" << endl;
         }
     }
-    cout << "Master::createJob()::Done fd="<<job.connfd << endl;
+    //cout << "Master::createJob()::Done fd="<<job.connfd << endl;
     
     handlers--;
     pthread_cond_signal(&cond_write);
@@ -129,10 +129,10 @@ void QueueManager::getRequest(JobEntry &job){
     }
     handlers++;
     
-    cout << "Thread(" << pthread_self() << ")::getRequest():: { " <<endl;
-    cout << "fd="<<job.connfd <<endl;
-    cout << "handlers="<<handlers << endl;
-    cout << "size=" << size << endl;
+    //cout << "Thread(" << pthread_self() << ")::getRequest():: { " <<endl;
+    //cout << "fd="<<job.connfd <<endl;
+    //cout << "handlers="<<handlers << endl;
+    //cout << "size=" << size << endl;
     
     bool result = false;
     jobs_queue.pop(job);
