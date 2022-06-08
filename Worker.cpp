@@ -37,14 +37,17 @@ void* startButInShittyCode(void* worker_arg) {
     while (true){
         manager.getRequest(worker.current_job);
         assert(worker.current_job.connfd != JobEntry::NO_FD);
+        cout << "Thread(" << pthread_self() << "=========BeforeSetTime=========" << endl;
         worker.current_job.setTime(JobEntry::Dispatch);
-        
+        cout << "Thread(" << pthread_self() << "=========BeforeRequestHandle=========" << endl;
+    
         requestHandle(worker.current_job.connfd);
         manager.finishRequest(worker.current_job);
     }
 }
 void BadWorkerInit(BadWorker& worker){
-    worker.current_job = (JobEntry::NO_FD);
+    JobEntry job(JobEntry::NO_FD);
+    worker.current_job = (job);
     //worker.thread = thread;
 }
 
