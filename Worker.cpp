@@ -29,20 +29,20 @@ void Worker::start() {
 
 
 void* startButInShittyCode(void* worker_arg) {
-    BadWorker& worker = (BadWorker&) worker_arg;
+    BadWorker* worker = (BadWorker*) worker_arg;
     QueueManager& manager = QueueManager::getInstance();
     
     cout << "Thread(" << pthread_self() << "):: Started" << endl;
     
     while (true){
-        manager.getRequest(worker.current_job);
-        assert(worker.current_job.connfd != JobEntry::NO_FD);
+        manager.getRequest(worker->current_job);
+        assert(worker->current_job.connfd != JobEntry::NO_FD);
         cout << "Thread(" << pthread_self() << "=========BeforeSetTime=========" << endl;
-        worker.current_job.setTime(JobEntry::Dispatch);
+        worker->current_job.setTime(JobEntry::Dispatch);
         cout << "Thread(" << pthread_self() << "=========BeforeRequestHandle=========" << endl;
     
-        requestHandle(worker.current_job.connfd);
-        manager.finishRequest(worker.current_job);
+        requestHandle(worker->current_job.connfd);
+        manager.finishRequest(worker->current_job);
     }
 }
 void BadWorkerInit(BadWorker& worker){
