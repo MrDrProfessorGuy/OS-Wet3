@@ -89,7 +89,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
 }
 
 void QueueManager::createJob(JobEntry job){
-    cout << "createJob()::start fd=" << job.connfd << endl;
+    //cout << "createJob()::start fd=" << job.connfd << endl;
     pthread_mutex_lock(&mutex);
     master_waiting++;
     while (handlers > 0){
