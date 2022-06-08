@@ -59,7 +59,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
     }
     else if(policy == DropHead){
         JobEntry oldest(JobEntry::NO_FD);
-        if (jobs_queue.isEmpty()){
+        if (!jobs_queue.isEmpty()){
             jobs_queue.pop(oldest);
             Close(oldest.connfd);
             return true;
