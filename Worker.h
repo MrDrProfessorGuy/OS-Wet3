@@ -27,6 +27,7 @@ public:
 typedef struct worket_t{
     JobEntry current_job;
     pthread_t thread;
+    int thread_id;
     int total_count;
     int static_count;
     int dynamic_count;
@@ -35,6 +36,6 @@ typedef struct worket_t{
 
 
 void* startButInShittyCode(void* worker_arg);
-void BadWorkerInit(BadWorker& worker);
+void BadWorkerInit(BadWorker& worker, int thread_id);
 
 #endif //WET_WORKER_H

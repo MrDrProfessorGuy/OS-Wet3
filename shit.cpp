@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     manager.Initialize(queue_size, policy);
     BadWorker* workers = (BadWorker *) malloc(sizeof(BadWorker)*threads_num);
     for (int thread = 0; thread < threads_num; thread++) {
-        BadWorkerInit(workers[thread]);
+        BadWorkerInit(workers[thread], thread);
         if (pthread_create(&(workers[thread].thread), NULL, startButInShittyCode, (void*)(&workers[thread])) != 0){
             unix_error("pthread_create error");
         }

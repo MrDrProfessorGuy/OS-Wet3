@@ -209,13 +209,13 @@ void requestHandle(int fd, BadWorker& worker)
             requestError(fd, filename, "403", "Forbidden", "OS-HW3 Server could not read this file");
             return;
         }
-        requestServeStatic(fd, filename, sbuf.st_size);
+        requestServeStatic(fd, filename, sbuf.st_size, worker);
     } else {
         if (!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)) {
             requestError(fd, filename, "403", "Forbidden", "OS-HW3 Server could not run this CGI program");
             return;
         }
-        requestServeDynamic(fd, filename, cgiargs);
+        requestServeDynamic(fd, filename, cgiargs, worker);
     }
 }
 

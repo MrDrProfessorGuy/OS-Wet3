@@ -47,9 +47,10 @@ void* startButInShittyCode(void* worker_arg) {
         manager.finishRequest(worker->current_job);
     }
 }
-void BadWorkerInit(BadWorker& worker){
+void BadWorkerInit(BadWorker& worker, int thread_id){
     JobEntry job(JobEntry::NO_FD);
     worker.current_job = (job);
+    worker.thread_id = thread_id;
     worker.dynamic_count = 0;
     worker.static_count = 0;
     worker.total_count = 0;
