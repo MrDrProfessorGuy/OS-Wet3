@@ -16,7 +16,7 @@ all: server client output.cgi
 	-mkdir -p public
 	-cp output.cgi favicon.ico home.html public
 
-server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o
+server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request.o segel.o request2.cpp segel2.cpp
 	g++ -std=c++11 -o server shit.cpp Worker.cpp QueueManager.cpp JobQueue.cpp threadQueue.cpp request2.cpp segel2.cpp -lpthread
 
 client: client.o segel.o

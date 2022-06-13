@@ -524,16 +524,16 @@ int open_listenfd(int port)
         fprintf(stderr, "setsockopt failed\n");
         return -1;
     }
-    
+/*
     struct timeval timeout;
-    timeout.tv_sec = 0;
-    timeout.tv_usec = 1;
+    timeout.tv_sec = 1;
+    timeout.tv_usec = 0;
     if (setsockopt(listenfd, SOL_SOCKET, SO_RCVTIMEO,
-                   (const void *)&optval , sizeof(int)) < 0) {
+                   &timeout , sizeof(timeout)) < 0) {
         fprintf(stderr, "setsockopt failed\n");
         return -1;
     }
-    
+  */
     /* Listenfd will be an endpoint for all requests to port
        on any IP address for this host */
     bzero((char *) &serveraddr, sizeof(serveraddr));
