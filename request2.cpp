@@ -128,6 +128,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     sprintf(buf, "HTTP/1.0 200 OK\r\n");
     sprintf(buf, "%sServer: OS-HW3 Web Server\r\n", buf);
     printStats(worker, buf);
+    sprintf(buf, "\r\n", buf);
     Rio_writen(fd, buf, strlen(buf));
     
     if (Fork() == 0) {
@@ -151,7 +152,7 @@ void printStats(BadWorker& worker, char* buf){
     sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
     sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
     sprintf(buf, "%sStat-Thread-Static:: %d\r\n", buf,worker.static_count);
-    sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);
+    sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n", buf,worker.dynamic_count);
 }
 
 void requestServeStatic(int fd, char *filename, int filesize, BadWorker& worker)

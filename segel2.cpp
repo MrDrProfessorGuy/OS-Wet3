@@ -546,7 +546,7 @@ int open_listenfd(int port)
     }
     
     /* Make it a listening socket ready to accept connection requests */
-    if (listen(listenfd, 0) < 0) {
+    if (listen(listenfd, LISTENQ) < 0) {
         fprintf(stderr, "listen failed\n");
         return -1;
     }
