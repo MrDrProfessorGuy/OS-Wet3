@@ -49,7 +49,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
     //cout << "Master::createJob()::PolicyHandler::start fd="<<job.connfd << endl;
     if(policy == Block){
         while(isFull()){
-            pthread_cond_wait(&cond_write, &mutex);
+            pthread_cond_wait(&cond_master, &mutex);
         }
         return true;
     }
