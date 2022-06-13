@@ -12,7 +12,7 @@
 #include "iostream"
 using namespace std;
 
-void printStats(BadWorker& worker, char* buf, bool add=true);
+void printStats(BadWorker& worker, char* buf, bool add);
 // requestError(      fd,    filename,        "404",    "Not found", "OS-HW3 Server could not find this file");
 void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg, BadWorker& worker)
 {
@@ -126,7 +126,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     // The CGI script has to finish writing out the header.
     sprintf(buf, "HTTP/1.0 200 OK\r\n");
     sprintf(buf, "%sServer: OS-HW3 Web Server\r\n", buf);
-    printStats(worker, buf);
+    printStats(worker, buf, true);
     //sprintf(buf, "\r\n", buf);
     Rio_writen(fd, buf, strlen(buf));
     
@@ -142,7 +142,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     
 }
 
-void printStats(BadWorker& worker, char* buf, bool add=true){
+void printStats(BadWorker& worker, char* buf, bool add){
     suseconds_t dispatch_interval_s = worker.current_job.dispatch_time.tv_sec- worker.current_job.arrival_time.tv_sec;
     suseconds_t dispatch_interval_us = worker.current_job.dispatch_time.tv_usec- worker.current_job.arrival_time.tv_usec;
     
