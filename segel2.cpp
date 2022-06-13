@@ -528,7 +528,7 @@ int open_listenfd(int port)
     struct timeval timeout;
     timeout.tv_sec = 0;
     timeout.tv_usec = 1;
-    if (setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR,
+    if (setsockopt(listenfd, SOL_SOCKET, SO_RCVTIMEO,
                    (const void *)&optval , sizeof(int)) < 0) {
         fprintf(stderr, "setsockopt failed\n");
         return -1;
