@@ -50,11 +50,11 @@ bool QueueManager::policyHandler(JobEntry& job) {
     if(policy == Block){
         master_waiting++;
         handlers--;
-            cout << "Master::createJob()::PolicyHandler::going to sleep fd="<<job.connfd << endl;
+            //cout << "Master::createJob()::PolicyHandler::going to sleep fd="<<job.connfd << endl;
         while(isFull()){
             pthread_cond_wait(&cond_master, &mutex);
         }
-        cout << "Master::createJob()::PolicyHandler::waking up fd="<<job.connfd << endl;
+        //cout << "Master::createJob()::PolicyHandler::waking up fd="<<job.connfd << endl;
         handlers++;
         master_waiting--;
         return true;
@@ -103,7 +103,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
 }
 
 void QueueManager::createJob(JobEntry job){
-    cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
+    //cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
     pthread_mutex_lock(&mutex);
     master_waiting++;
     while (handlers > 0){
@@ -114,7 +114,7 @@ void QueueManager::createJob(JobEntry job){
     
     bool create = true;
     if (isFull()){
-        cout << "createJob::QueueFull fd=" << job.connfd << endl;
+        //cout << "createJob::QueueFull fd=" << job.connfd << endl;
         create = policyHandler(job);
     }
     
