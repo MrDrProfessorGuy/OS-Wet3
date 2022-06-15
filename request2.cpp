@@ -123,7 +123,7 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     // The CGI script has to finish writing out the header.
     sprintf(buf, "HTTP/1.0 200 OK\r\n");
     sprintf(buf, "%sServer: OS-HW3 Web Server\r\n", buf);
-    printStats(worker, fd, buf, true);
+    printStats(worker, fd, buf, false);
     //sprintf(buf, "\r\n", buf);
     Rio_writen(fd, buf, strlen(buf));
     
@@ -153,15 +153,12 @@ void printStats(BadWorker& worker, int fd, char* buf, bool add){
     //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Static:: %d\r\n", buf,worker.static_count);
     //Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);
-    //Rio_writen(fd, buf, strlen(buf));
-    /*
     if (add){
         sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);
     }
     else{
         sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n", buf,worker.dynamic_count);
-    }*/
+    }
 }
 
 void requestServeStatic(int fd, char *filename, int filesize, BadWorker& worker)
