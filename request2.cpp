@@ -148,7 +148,7 @@ void printStats(BadWorker& worker, int fd, char* buf, bool add){
     
     sprintf(buf, "%sStat-Req-Arrival:: %lu.%06lu\r\n", buf,worker.current_job.arrival_time.tv_sec, worker.current_job.arrival_time.tv_usec);
     //Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,diff.tv_sec,diff.tv_sec);
+    sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,diff.tv_sec,diff.tv_usec);
     //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
     //Rio_writen(fd, buf, strlen(buf));

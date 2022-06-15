@@ -151,11 +151,10 @@ void QueueManager::getRequest(JobEntry &job){
     //cout << "size=" << size << endl;
     
     bool result = false;
+    job.setTime(JobEntry::Dispatch);
     jobs_queue.pop(job);
     thread_queue.insert(result);
     //assert(result);
-    job.setTime(JobEntry::Dispatch);
-    
     
     handlers--;
     if (master_waiting > 0 && !isFull()){

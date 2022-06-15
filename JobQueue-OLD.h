@@ -2,8 +2,8 @@
 // Created by guy cohen on 04/06/2022.
 //
 
-#ifndef WET_JOBSQUEUE_H
-#define WET_JOBSQUEUE_H
+#ifndef WET_JOBQUEUE_H
+#define WET_JOBQUEUE_H
 
 #include <sys/time.h>
 #include <pthread.h>
@@ -41,15 +41,12 @@ bool operator==(const JobEntry &job1, const JobEntry& job2);
 
 
 
-class JobsQueue{
+class JobQueue{
     static const int NotFound = -1;
     
     pthread_mutex_t mutex;
     pthread_cond_t cond_write;
     int writers;
-    
-    int front;
-    int rear;
     
     int max_size;
     int size;
@@ -76,4 +73,4 @@ public:
 
 
 
-#endif //WET_JOBSQUEUE_H
+#endif //WET_JOBQUEUE_H
