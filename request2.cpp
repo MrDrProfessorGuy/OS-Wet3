@@ -149,7 +149,7 @@ void printStats(BadWorker& worker, int fd, char* buf, bool add){
     //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
     //Rio_writen(fd, buf, strlen(buf));
-    //sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
+    sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
     //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Static:: %d\r\n", buf,worker.static_count);
     //Rio_writen(fd, buf, strlen(buf));
