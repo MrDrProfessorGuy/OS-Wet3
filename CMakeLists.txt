@@ -10,4 +10,4 @@ add_executable(Wet
         threadQueue.cpp threadQueue.h
         JobQueue.cpp JobQueue.h
         Worker.cpp Worker.h
-        shit.cpp)
+        server2.cpp)
