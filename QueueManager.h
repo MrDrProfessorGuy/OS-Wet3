@@ -22,6 +22,7 @@ private:
     
     int max_size;
     int size;
+    int thread_queue_size;
     
     threadQueue thread_queue;
     JobQueue jobs_queue;
@@ -65,6 +66,7 @@ public:
         jobs_queue.Initialize(maxSize);
         thread_queue.Initialize(maxSize);
         max_size = maxSize;
+        thread_queue_size = 0;
     }
     
 };

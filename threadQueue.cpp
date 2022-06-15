@@ -88,7 +88,7 @@ void threadQueue::remove(){
     
     writers--;
     pthread_cond_signal(&cond_write);
-    pthread_mutex_unlock(&mutex);*/
+    pthread_mutex_unlock(&mutex);
 
 }
 

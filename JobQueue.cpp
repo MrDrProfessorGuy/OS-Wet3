@@ -72,22 +72,19 @@ void JobQueue::Initialize(int maxSize){
     size = 0;
     max_size = maxSize;
     
-    front = -1;
-    rear = -1;
-    
     for (int idx = 0; idx < max_size; idx++) {
         array[idx] = JobEntry::NO_FD;
     }
     
 }
 bool JobQueue::isEmpty() const{
-    if (front == -1)
+    if (size == 0){
         return true;
-    else
-        return false;
+    }
+    return false;
 }
 bool JobQueue::isFull() const{
-    if ((front == rear + 1) || (front == 0 && rear == max_size - 1)) {
+    if (size == max_size){
         return true;
     }
     return false;
@@ -100,19 +97,22 @@ void JobQueue::insert(JobEntry &job, bool &result){
     }
     writers++;
     
+    //assert(find(job) == NotFound);
     result = true;
-    if (isFull()) {
-       result = false;
+    if (isFull()){
+        result = false;
     }
-    else {
-        if (front == -1) {
-            front = 0;
-        }
-        rear = (rear + 1) % max_size;
-        array[rear] = job;
+    else{
+        array[size].operator=(job);
+        size++;
     }
-    size++;
-    
+    /*
+    cout << "================== JobQueue::Insert["<<size<<"] ==================" << endl;
+    for (int i = 0; i < size; i++) {
+        cout << "JobQueue::job["<<i<<"]:: fd=" << array[i].connfd << endl;
+    }
+    cout << "======================================================" << endl;
+    */
     writers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
@@ -130,18 +130,17 @@ void JobQueue::pop(JobEntry &job, int index){
     //assert(!isEmpty());
     //int index = find(job);
     //assert(index >= 0 && index < size);
-    JobEntry element = array[front];
-    if (front == rear) {
-        front = -1;
-        rear = -1;
-    }
-        // Q has only one element,
-        // so we reset the queue after deleting it.
-    else {
-        front = (front + 1) % max_size;
-    }
-    job = (element);
     
+    job = array[index];
+    for (int idx = index; idx < max_size-1; idx++) {
+        if (idx == size-1){
+            array[idx] = JobEntry::NO_FD;
+            break;
+        }
+        else{
+            array[idx].operator=(array[idx + 1]);
+        }
+    }
     size--;
     /*
     cout << "================== JobQueue::Pop["<<size<<"] ==================" << endl;
@@ -154,7 +153,6 @@ void JobQueue::pop(JobEntry &job, int index){
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);
 }
-
 
 int JobQueue::find(JobEntry &job) const{
     for(int i = 0; i < this->size; i++){

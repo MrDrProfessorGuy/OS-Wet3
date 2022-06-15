@@ -150,7 +150,8 @@ void QueueManager::getRequest(JobEntry &job){
     bool result = false;
     job.setTime(JobEntry::Dispatch);
     jobs_queue.pop(job);
-    thread_queue.insert(result);
+    thread_queue_size++;
+    //thread_queue.insert(result);
     //assert(result);
     
     handlers--;
@@ -172,7 +173,8 @@ void QueueManager::finishRequest(JobEntry &job){
     handlers++;
     
     //cout << "Thread(" << pthread_self() << ")::finishRequest():: fd="<<job.connfd << endl;
-    thread_queue.remove();
+    //thread_queue.remove();
+    thread_queue_size--;
     Close(job.connfd);
     job.connfd = JobEntry::NO_FD;
     size--;
