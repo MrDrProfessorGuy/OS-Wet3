@@ -36,6 +36,7 @@ void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longm
     Rio_writen(fd, buf, strlen(buf));
     
     printStats(worker, fd, buf, true);
+    Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     /*
     sprintf(buf, "\r\n");
@@ -143,17 +144,17 @@ void printStats(BadWorker& worker, int fd, char* buf, bool add){
     suseconds_t dispatch_interval_us = worker.current_job.dispatch_time.tv_usec- worker.current_job.arrival_time.tv_usec;
     
     sprintf(buf, "%sStat-Req-Arrival:: %lu.%06lu\r\n", buf,worker.current_job.arrival_time.tv_sec, worker.current_job.arrival_time.tv_usec);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,dispatch_interval_s,dispatch_interval_us);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
-    Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
+    //sprintf(buf, "%sStat-Thread-Count:: %d\r\n", buf,worker.total_count);
+    //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Static:: %d\r\n", buf,worker.static_count);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     /*
     if (add){
         sprintf(buf, "%sStat-Thread-Dynamic:: %d\r\n\r\n", buf,worker.dynamic_count);
