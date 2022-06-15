@@ -22,7 +22,7 @@ server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request2.o segel
 client: client.o segel.o
 	$(CC) $(CFLAGS) -o client client.c segel.c -lpthread
 
-output.cgi: output.c
+output.cgi: output.o
 	$(CC) $(CFLAGS) -o output.cgi output.c
 
 .c.o:
