@@ -127,16 +127,17 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
     //sprintf(buf, "\r\n", buf);
     Rio_writen(fd, buf, strlen(buf));
     
-    if (Fork() == 0) {
+    pid_t pid = Fork();
+    if (pid == 0) {
         /* Child process */
         Setenv("QUERY_STRING", cgiargs, 1);
         /* When the CGI process writes to stdout, it will instead go to the socket */
         Dup2(fd, STDOUT_FILENO);
         Execve(filename, emptylist, environ);
     }
-    Wait(NULL);
-    
-    
+    else{
+        WaitPid(pid, NULL, 0);
+    }
 }
 
 void printStats(BadWorker& worker, int fd, char* buf, bool add){

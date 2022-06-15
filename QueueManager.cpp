@@ -105,6 +105,7 @@ bool QueueManager::policyHandler(JobEntry& job) {
 
 void QueueManager::createJob(JobEntry job){
     //cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
+    job.setTime(JobEntry::Arrival);
     pthread_mutex_lock(&mutex);
     master_waiting++;
     while (handlers > 0){
@@ -153,7 +154,7 @@ void QueueManager::getRequest(JobEntry &job){
     jobs_queue.pop(job);
     thread_queue.insert(result);
     //assert(result);
-    
+    job.setTime(JobEntry::Dispatch);
     
     
     handlers--;
