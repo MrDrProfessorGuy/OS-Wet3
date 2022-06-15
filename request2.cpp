@@ -9,8 +9,6 @@
 //
 
 #include "segel2.h"
-#include "iostream"
-using namespace std;
 
 void printStats(BadWorker& worker, char* buf, bool add);
 // requestError(      fd,    filename,        "404",    "Not found", "OS-HW3 Server could not find this file");

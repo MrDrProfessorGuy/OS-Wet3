@@ -6,9 +6,7 @@
 #include "QueueManager.h"
 #include "request2.h"
 
-#include "assert.h"
-#include "iostream"
-using namespace std;
+
 
 Worker::Worker() : current_job(JobEntry::NO_FD) {}
 Worker::~Worker() {}
@@ -18,7 +16,7 @@ void Worker::start() {
     
     while (true){
         manager.getRequest(current_job);
-        assert(current_job.connfd != JobEntry::NO_FD);
+        //assert(current_job.connfd != JobEntry::NO_FD);
         current_job.setTime(JobEntry::Dispatch);
     
         //requestHandle(current_job.connfd);
@@ -38,7 +36,7 @@ void* startButInShittyCode(void* worker_arg) {
     while (true){
         manager.getRequest(worker->current_job);
         worker->total_count++;
-        assert(worker->current_job.connfd != JobEntry::NO_FD);
+        //assert(worker->current_job.connfd != JobEntry::NO_FD);
         //cout << "Thread(" << worker->thread_id << "=========BeforeSetTime=========" << endl;
         worker->current_job.setTime(JobEntry::Dispatch);
         //cout << "Thread(" << worker->thread_id << "=========BeforeRequestHandle=========" << endl;

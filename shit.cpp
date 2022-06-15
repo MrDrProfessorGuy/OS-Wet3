@@ -2,8 +2,7 @@
 #include "Worker.h"
 #include "QueueManager.h"
 
-#include "iostream"
-using namespace std;
+
 //
 // server.c: A very, very simple web server
 //

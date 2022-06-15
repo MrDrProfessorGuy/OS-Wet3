@@ -20,7 +20,7 @@ server: shit.o Worker.o QueueManager.o JobQueue.o threadQueue.o request2.o segel
 	g++ -std=c++11 -o server shit.cpp Worker.cpp QueueManager.cpp JobQueue.cpp threadQueue.cpp request2.cpp segel2.cpp -lpthread
 
 client: client.o segel.o
-	$(CC) $(CFLAGS) -o client client.o segel.o -lpthread
+	$(CC) $(CFLAGS) -o client client.c segel.c -lpthread
 
 output.cgi: output.c
 	$(CC) $(CFLAGS) -o output.cgi output.c

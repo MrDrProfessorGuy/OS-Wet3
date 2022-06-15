@@ -3,11 +3,9 @@
 //
 
 #include "JobQueue.h"
-#include "assert.h"
 #include "stdlib.h"
+#include "segel2.h"
 
-#include "iostream"
-using namespace std;
 
 JobEntry::JobEntry(int connfd): connfd(connfd) {
     setTime(Arrival);
@@ -52,16 +50,18 @@ bool operator==(const JobEntry &job1, const JobEntry& job2){
 
 JobQueue::JobQueue(){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("mutex init");
     }
     if (pthread_cond_init(&cond_write, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("cond init");
     }
     
 }
 
 JobQueue::~JobQueue(){
-    assert(array != nullptr);
+    //assert(array != nullptr);
     free(array);
 }
 void JobQueue::Initialize(int maxSize){
@@ -120,16 +120,16 @@ void JobQueue::insert(JobEntry &job, bool &result){
 
 void JobQueue::pop(JobEntry &job, int index){
     pthread_mutex_lock(&mutex);
-    assert(!isEmpty());
+    //assert(!isEmpty());
     while (writers > 0 || isEmpty()){
         pthread_cond_wait(&cond_write, &mutex);
-        assert(!isEmpty());
+        //assert(!isEmpty());
     }
     writers++;
     
-    assert(!isEmpty());
+    //assert(!isEmpty());
     //int index = find(job);
-    assert(index >= 0 && index < size);
+    //assert(index >= 0 && index < size);
     
     job = array[index];
     for (int idx = index; idx < max_size-1; idx++) {

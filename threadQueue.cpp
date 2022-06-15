@@ -4,19 +4,21 @@
 
 #include "threadQueue.h"
 #include <stdlib.h>
-#include "assert.h"
+#include "segel2.h"
 
 threadQueue::threadQueue(){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("mutex init");
     }
     if (pthread_cond_init(&cond_write, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("cond init");
     }
     
 }
 threadQueue::~threadQueue(){
-    assert(array != nullptr);
+    //assert(array != nullptr);
     free(array);
 }
 
@@ -49,7 +51,7 @@ void threadQueue::insert(bool &result){
     }
     writers++;
     
-    assert(find(pthread_self()) == NotFound);
+    //assert(find(pthread_self()) == NotFound);
     result = true;
     if (isFull()){
         result = false;
@@ -66,16 +68,16 @@ void threadQueue::insert(bool &result){
 
 void threadQueue::remove(){
     pthread_mutex_lock(&mutex);
-    assert(!isEmpty());
+    //assert(!isEmpty());
     while (writers > 0 || isEmpty()){
         pthread_cond_wait(&cond_write, &mutex);
-        assert(!isEmpty());
+        //assert(!isEmpty());
     }
     writers++;
     
-    assert(!isEmpty());
+    //assert(!isEmpty());
     int index = find(pthread_self());
-    assert(index > NotFound);
+    //assert(index > NotFound);
     for (int idx = index; idx < max_size-1; idx++) {
         array[idx] = (array[idx + 1]);
     }

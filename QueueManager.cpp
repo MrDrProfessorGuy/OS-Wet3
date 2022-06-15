@@ -2,9 +2,7 @@
 #include "QueueManager.h"
 #include "segel2.h"
 
-#include "assert.h"
-#include "iostream"
-using namespace std;
+
 
 /*
 QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), master_waiting(0), max_size(max_size), size(0),
@@ -23,13 +21,16 @@ QueueManager::QueueManager(int max_size, PolicyType policy) : handlers(0), maste
 QueueManager::QueueManager() : handlers(0), master_waiting(0), max_size(0), size(0),
                                 thread_queue(), jobs_queue(), policy(Block){
     if (pthread_mutex_init(&mutex, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("mutex_error");
     }
     if (pthread_cond_init(&cond_write, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("cond error");
     }
     if (pthread_cond_init(&cond_master, nullptr) != 0){
-        assert(false);
+        //assert(false);
+        unix_error("cond error");
     }
     //cout << "QueueManager:: Initialized"<< endl;
 }
@@ -151,7 +152,7 @@ void QueueManager::getRequest(JobEntry &job){
     bool result = false;
     jobs_queue.pop(job);
     thread_queue.insert(result);
-    assert(result);
+    //assert(result);
     
     
     
@@ -167,7 +168,7 @@ void QueueManager::getRequest(JobEntry &job){
 
 void QueueManager::finishRequest(JobEntry &job){
     pthread_mutex_lock(&mutex);
-    assert(!thread_queue.isEmpty());
+    //assert(!thread_queue.isEmpty());
     while (handlers > 0){
         pthread_cond_wait(&cond_write, &mutex);
     }
