@@ -107,11 +107,11 @@ void QueueManager::createJob(JobEntry job){
     //cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
     job.setTime(JobEntry::Arrival);
     pthread_mutex_lock(&mutex);
-    //master_waiting++;
+    master_waiting++;
     while (handlers > 0){
-        pthread_cond_wait(&cond_write, &mutex);
+        pthread_cond_wait(&cond_master, &mutex);
     }
-    //master_waiting--;
+    master_waiting--;
     handlers++;
     
     bool create = true;
