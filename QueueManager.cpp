@@ -79,7 +79,6 @@ bool QueueManager::policyHandler(JobEntry& job) {
             Close(job.connfd);
             return false;
         }
-
     }
     else{
         int del_num = ceil(0.3*jobs_queue.size);
@@ -107,11 +106,11 @@ void QueueManager::createJob(JobEntry job){
     //cout << "createJob["<<size<<"]::start fd=" << job.connfd << endl;
     job.setTime(JobEntry::Arrival);
     pthread_mutex_lock(&mutex);
-    master_waiting++;
+    //master_waiting++;
     while (handlers > 0){
-        pthread_cond_wait(&cond_master, &mutex);
+        pthread_cond_wait(&cond_write, &mutex);
     }
-    master_waiting--;
+    //master_waiting--;
     handlers++;
     
     bool create = true;
@@ -148,10 +147,11 @@ void QueueManager::getRequest(JobEntry &job){
     //cout << "size=" << size << endl;
     
     bool result = false;
-    job.setTime(JobEntry::Dispatch);
+    
     jobs_queue.pop(job);
-    thread_queue_size++;
-    //thread_queue.insert(result);
+    job.setTime(JobEntry::Dispatch);
+    //thread_queue_size++;
+    thread_queue.insert(result);
     //assert(result);
     
     handlers--;
@@ -173,8 +173,8 @@ void QueueManager::finishRequest(JobEntry &job){
     handlers++;
     
     //cout << "Thread(" << pthread_self() << ")::finishRequest():: fd="<<job.connfd << endl;
-    //thread_queue.remove();
-    thread_queue_size--;
+    thread_queue.remove();
+    //thread_queue_size--;
     Close(job.connfd);
     job.connfd = JobEntry::NO_FD;
     size--;
