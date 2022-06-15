@@ -182,7 +182,7 @@ void requestServeStatic(int fd, char *filename, int filesize, BadWorker& worker)
     sprintf(buf, "%sContent-Type: %s\r\n", buf, filetype);
     Rio_writen(fd, buf, strlen(buf));
     
-    printStats(worker, buf, false);
+    printStats(worker, buf, true);
     Rio_writen(fd, buf, strlen(buf));
     
     //  Writes out to the client socket the memory-mapped file
