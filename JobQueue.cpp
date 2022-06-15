@@ -100,7 +100,6 @@ void JobQueue::insert(JobEntry &job, bool &result){
     }
     writers++;
     
-    //assert(find(job) == NotFound);
     result = true;
     if (isFull()) {
        result = false;
@@ -113,6 +112,7 @@ void JobQueue::insert(JobEntry &job, bool &result){
         array[rear] = job;
     }
     size++;
+    
     writers--;
     pthread_cond_signal(&cond_write);
     pthread_mutex_unlock(&mutex);

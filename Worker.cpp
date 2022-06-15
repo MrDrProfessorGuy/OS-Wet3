@@ -38,7 +38,7 @@ void* startButInShittyCode(void* worker_arg) {
         worker->total_count++;
         //assert(worker->current_job.connfd != JobEntry::NO_FD);
         //cout << "Thread(" << worker->thread_id << "=========BeforeSetTime=========" << endl;
-        worker->current_job.setTime(JobEntry::Dispatch);
+        //worker->current_job.setTime(JobEntry::Dispatch);
         //cout << "Thread(" << worker->thread_id << "=========BeforeRequestHandle=========" << endl;
     
         requestHandle(worker->current_job.connfd, *worker);
