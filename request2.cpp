@@ -38,7 +38,7 @@ void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longm
     Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     
-    printStats(worker, buf, false);
+    printStats(worker, buf, true);
     Rio_writen(fd, buf, strlen(buf));
     printf("%s", buf);
     
@@ -218,6 +218,7 @@ void requestHandle(int fd, BadWorker& worker)
     is_static = requestParseURI(uri, filename, cgiargs);
     if (stat(filename, &sbuf) < 0) {
         requestError(fd, filename, "404", "Not found", "OS-HW3 Server could not find this file", worker);
+        sleep(10);
         return;
     }
     

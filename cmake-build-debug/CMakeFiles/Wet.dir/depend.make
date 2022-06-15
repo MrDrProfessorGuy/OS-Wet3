@@ -17,6 +17,8 @@ CMakeFiles/Wet.dir/Worker.cpp.o: ../Worker.h
 CMakeFiles/Wet.dir/Worker.cpp.o: ../request2.h
 CMakeFiles/Wet.dir/Worker.cpp.o: ../threadQueue.h
 
+CMakeFiles/Wet.dir/request2.cpp.o: ../JobQueue.h
+CMakeFiles/Wet.dir/request2.cpp.o: ../Worker.h
 CMakeFiles/Wet.dir/request2.cpp.o: ../request2.cpp
 CMakeFiles/Wet.dir/request2.cpp.o: ../request2.h
 CMakeFiles/Wet.dir/request2.cpp.o: ../segel2.h

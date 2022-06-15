@@ -12,17 +12,23 @@ sys/time.h
 pthread.h
 -
 
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h
-JobQueue.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/JobQueue.h
-threadQueue.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/threadQueue.h
-
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h
 pthread.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/pthread.h
 JobQueue.h
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/JobQueue.h
+
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.cpp
+request2.h
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.h
+segel2.h
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.h
+iostream
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/iostream
+
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/request2.h
+Worker.h
+/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h
 
 /Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.h
 stdio.h
@@ -68,17 +74,5 @@ netdb.h
 netinet/in.h
 -
 arpa/inet.h
--
-
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/shit.cpp
-segel2.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/segel2.h
-Worker.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/Worker.h
-QueueManager.h
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/QueueManager.h
-
-/Users/guycohen/Library/CloudStorage/OneDrive-Technion/1 Courses/Operating Systems/Homework/HW3/Wet/threadQueue.h
-pthread.h
 -
 
