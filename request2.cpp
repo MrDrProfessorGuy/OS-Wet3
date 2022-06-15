@@ -142,10 +142,12 @@ void requestServeDynamic(int fd, char *filename, char *cgiargs, BadWorker& worke
 void printStats(BadWorker& worker, int fd, char* buf, bool add){
     suseconds_t dispatch_interval_s = worker.current_job.dispatch_time.tv_sec- worker.current_job.arrival_time.tv_sec;
     suseconds_t dispatch_interval_us = worker.current_job.dispatch_time.tv_usec- worker.current_job.arrival_time.tv_usec;
+    struct timeval diff;
+    timersub(&(worker.current_job.arrival_time),&(worker.current_job.dispatch_time),&diff);
     
     sprintf(buf, "%sStat-Req-Arrival:: %lu.%06lu\r\n", buf,worker.current_job.arrival_time.tv_sec, worker.current_job.arrival_time.tv_usec);
     //Rio_writen(fd, buf, strlen(buf));
-    sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,dispatch_interval_s,dispatch_interval_us);
+    sprintf(buf, "%sStat-Req-Dispatch:: %lu.%06lu\r\n", buf,diff.tv_sec,diff.tv_sec);
     //Rio_writen(fd, buf, strlen(buf));
     sprintf(buf, "%sStat-Thread-Id:: %d\r\n", buf, worker.thread_id);
     //Rio_writen(fd, buf, strlen(buf));
