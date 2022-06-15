@@ -33,7 +33,7 @@ void requestError(int fd, char *cause, char *errnum, char *shortmsg, char *longm
     printf("%s", buf);
     
     sprintf(buf, "Content-Length: %lu\r\n", strlen(body));
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     
     printStats(worker, fd, buf, true);
     Rio_writen(fd, buf, strlen(buf));
@@ -184,7 +184,7 @@ void requestServeStatic(int fd, char *filename, int filesize, BadWorker& worker)
     sprintf(buf, "%sServer: OS-HW3 Web Server\r\n", buf);
     sprintf(buf, "%sContent-Length: %d\r\n", buf, filesize);
     sprintf(buf, "%sContent-Type: %s\r\n", buf, filetype);
-    Rio_writen(fd, buf, strlen(buf));
+    //Rio_writen(fd, buf, strlen(buf));
     
     printStats(worker, fd, buf, true);
     Rio_writen(fd, buf, strlen(buf));
